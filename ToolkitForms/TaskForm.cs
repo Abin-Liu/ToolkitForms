@@ -12,12 +12,12 @@ namespace ToolkitForms
 		/// <summary>
 		/// 线程工作函数（无参），如果非null则优先运行
 		/// </summary>
-		public ThreadStart ThreadProc { get; set; }
+		public ThreadStart TaskProc { get; set; }
 
 		/// <summary>
-		/// 线程工作函数（带参），只有当ThreadProc为null时才会运行
+		/// 线程工作函数（带参），只有当TaskProc为null时才会运行
 		/// </summary>
-		public ParameterizedThreadStart ParameterThreadProc { get; set; }
+		public ParameterizedThreadStart ParameterTaskProc { get; set; }
 
 		/// <summary>
 		/// ParameterThreadProc的参数
@@ -37,7 +37,17 @@ namespace ToolkitForms
 		/// <summary>
 		/// 限制任务最大运行时间（毫秒），超过则强制中止，0表示无限制，默认为0
 		/// </summary>
-		public int Timeout { get; set; }
+		public int TimeLimit { get; set; }
+
+		/// <summary>
+		/// 任务是否因用户中止而结束
+		/// </summary>
+		public bool Aborted { get; private set; }
+
+		/// <summary>
+		/// 任务是否因运行超时而结束
+		/// </summary>
+		public bool TimedOut { get; private set; }
 
 		/// <summary>
 		/// 线程运行中发生的错误信息
@@ -86,6 +96,9 @@ namespace ToolkitForms
 			btnAbort.Text = Localization.Get("Abort");
 
 			Error = null;
+			Aborted = false;
+			TimedOut = false;
+
 			m_thread = new Thread(ProcessTask);
 			m_thread.IsBackground = true;
 			m_thread.Start();
@@ -96,9 +109,10 @@ namespace ToolkitForms
 		{
 			if (m_thread.IsAlive)
 			{
-				if (Timeout > 0 && (DateTime.Now - m_startTime).TotalMilliseconds > Timeout)
+				if (TimeLimit > 0 && (DateTime.Now - m_startTime).TotalMilliseconds > TimeLimit)
 				{
 					// 运行超时，强制中止
+					TimedOut = true;
 					m_thread.Abort();
 				}
 			}
@@ -117,16 +131,21 @@ namespace ToolkitForms
 
 			try
 			{
-				if (ThreadProc != null)
+				if (TaskProc != null)
 				{
-					ThreadProc();
+					TaskProc();
 				}
 				else
 				{
-					ParameterThreadProc?.Invoke(Parameter);
+					ParameterTaskProc?.Invoke(Parameter);
 				}
 
 				completed = true;
+			}
+			catch (ThreadAbortException)
+			{
+				Aborted = true;
+				Error = Localization.Get(TimedOut ? "Task timed out." : "Task aborted by user.");				
 			}
 			catch (Exception e)
 			{
@@ -141,16 +160,29 @@ namespace ToolkitForms
 		private static readonly string m_popupMessage = Localization.Get("Process is not completed yet, abort anyway?");
 		private void TaskForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			if (IsAlive)
+			if (!IsAlive)
 			{
-				// Display a confirmation if the thread is still alive
-				e.Cancel = MessageBox.Show(this, m_popupMessage, m_popupTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes;
+				return;
+			}
 
-				// User has confirmed to abort
-				if (!e.Cancel)
-				{
-					m_thread.Abort();
-				}
+			// 线程运行中，显示中止任务确认框
+			bool confirmed = MessageBox.Show(this, m_popupMessage, m_popupTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
+
+			// 任务在确认期间自然结束了
+			if (!IsAlive)
+			{
+				return;
+			}
+
+			if (confirmed)
+			{
+				// 确认中止
+				m_thread.Abort();
+			}
+			else
+			{
+				// 用户不希望中止
+				e.Cancel = true;
 			}
 		}
 

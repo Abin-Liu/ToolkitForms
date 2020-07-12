@@ -50,8 +50,8 @@ namespace Demo
 		private void btnTaskForm_Click(object sender, EventArgs e)
 		{
 			TaskForm form = new TaskForm();
-			form.ThreadProc = TaskProc;
-			form.Timeout = 1500;
+			form.TaskProc = TaskProc;
+			//form.TimeLimit = 1500;
 
 			if (form.ShowDialog(this) != DialogResult.OK)
 			{
@@ -61,7 +61,7 @@ namespace Demo
 
 		void TaskProc()
 		{
-			Thread.Sleep(5000);
+			Thread.Sleep(3000);
 		}
 
 		private void btnLoginForm_Click(object sender, EventArgs e)

@@ -33,6 +33,8 @@ namespace ToolkitForms
 			{ "Abort", "中止" },
 			{ "Abort Task", "中止任務" },
 			{ "Process is not completed yet, abort anyway?", "任務尚未完成，確定要中止嗎？" },
+			{ "Task aborted by user.", "用戶中止了任務。" },
+			{ "Task timed out.", "任務已超時。" },
 		};
 	}
 }
