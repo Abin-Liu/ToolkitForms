@@ -32,7 +32,12 @@ namespace ToolkitForms
 		/// <summary>
 		/// 窗体文字，默认为已本地化的"Processing data..."
 		/// </summary>
-		public string Message { get; set; }	
+		public string Message { get; set; }
+
+		/// <summary>
+		/// 限制任务最大运行时间（毫秒），超过则强制中止，0表示无限制，默认为0
+		/// </summary>
+		public int Timeout { get; set; }
 
 		/// <summary>
 		/// 线程运行中发生的错误信息
@@ -45,6 +50,7 @@ namespace ToolkitForms
 		private bool IsAlive { get { return m_thread == null ? false : m_thread.IsAlive; } }
 		private Thread m_thread = null; // 线程
 		private System.Threading.Timer m_timer = null; // 定期检查线程是否已结束
+		private DateTime m_startTime;
 
 
 		/// <summary>
@@ -88,7 +94,15 @@ namespace ToolkitForms
 		// 时钟间隔检查线程是否结束
 		private void OnTimerTick(object data)
 		{
-			if (!m_thread.IsAlive)
+			if (m_thread.IsAlive)
+			{
+				if (Timeout > 0 && (DateTime.Now - m_startTime).TotalMilliseconds > Timeout)
+				{
+					// 运行超时，强制中止
+					m_thread.Abort();
+				}
+			}
+			else
 			{
 				Close();
 			}
@@ -97,6 +111,7 @@ namespace ToolkitForms
 		// 内部处理函数
 		private void ProcessTask()
 		{
+			m_startTime = DateTime.Now;
 			bool completed = false;
 			m_timer = new System.Threading.Timer(OnTimerTick, null, 100, 100);
 

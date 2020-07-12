@@ -51,6 +51,7 @@ namespace Demo
 		{
 			TaskForm form = new TaskForm();
 			form.ThreadProc = TaskProc;
+			form.Timeout = 1500;
 
 			if (form.ShowDialog(this) != DialogResult.OK)
 			{
