@@ -108,5 +108,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icons\Input.ico" />
+    <Content Include="Icons\Login.ico" />
+    <Content Include="Icons\Select.ico" />
+    <Content Include="Icons\Task.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

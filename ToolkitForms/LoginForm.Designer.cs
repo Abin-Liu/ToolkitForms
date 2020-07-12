@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
 			this.lblUserName = new System.Windows.Forms.Label();
 			this.lblPassword = new System.Windows.Forms.Label();
 			this.txtUserName = new System.Windows.Forms.TextBox();
@@ -103,7 +104,10 @@
 			this.Controls.Add(this.txtUserName);
 			this.Controls.Add(this.lblPassword);
 			this.Controls.Add(this.lblUserName);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "LoginForm";
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

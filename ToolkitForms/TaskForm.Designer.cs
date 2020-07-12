@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskForm));
 			this.lblPrompt = new System.Windows.Forms.Label();
 			this.btnAbort = new System.Windows.Forms.Button();
 			this.SuspendLayout();
@@ -58,7 +59,10 @@
 			this.ClientSize = new System.Drawing.Size(332, 77);
 			this.Controls.Add(this.btnAbort);
 			this.Controls.Add(this.lblPrompt);
-			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
 			this.Name = "TaskForm";
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
