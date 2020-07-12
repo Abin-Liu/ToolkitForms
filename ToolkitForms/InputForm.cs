@@ -37,14 +37,14 @@ namespace ToolkitForms
 		public InputFormValidateDelegate Validator { get; set; }
 
 		/// <summary>
-		/// 窗体标题，默认为"Input"
+		/// 窗体标题，默认为已本地化的"Input"
 		/// </summary>
-		public string Title { get; set; } = "Input";
+		public string Title { get; set; }
 
 		/// <summary>
-		/// 窗体提示，默认为"Please type a value:"
+		/// 窗体提示，默认为已本地化的"Please type a value"
 		/// </summary>
-		public string Message { get; set; } = "Please type a value:";
+		public string Message { get; set; }
 
 		/// <summary>
 		/// 默认构造函数
@@ -56,8 +56,10 @@ namespace ToolkitForms
 
 		private void InputForm_Load(object sender, EventArgs e)
 		{
-			Text = Title;
-			lblPrompt.Text = Message;
+			Text = Title ?? Localization.Get("Input");
+			lblPrompt.Text = Message ?? Localization.Get("Please type a value");
+			btnOK.Text = Localization.Get("OK");
+			btnCancel.Text = Localization.Get("Cancel");
 
 			if (!string.IsNullOrEmpty(Value))
 			{

@@ -26,7 +26,6 @@ namespace Demo
 		private void btnInputForm_Click(object sender, EventArgs e)
 		{
 			InputForm form = new InputForm();
-			form.Title = "输入";
 			form.Message = "请输入字母或数字：";
 			form.Regex = InputFormCommonRules.AlphabetDigits;
 
@@ -39,9 +38,8 @@ namespace Demo
 		private void btnSelectForm_Click(object sender, EventArgs e)
 		{
 			SelectForm form = new SelectForm();
-			form.Title = "选择";
-			form.Message = "请选择：";
-			form.TextArray = new string[] { "A", "B", "C" };
+			form.SelectedIndex = 0;
+			form.Options = new string[] { "A", "B", "C" };			
 
 			if (form.ShowDialog(this) == DialogResult.OK)
 			{
@@ -52,8 +50,6 @@ namespace Demo
 		private void btnTaskForm_Click(object sender, EventArgs e)
 		{
 			TaskForm form = new TaskForm();
-			form.Title = "Please Wait";
-			form.Message = "Processing Data...";			
 			form.ThreadProc = TaskProc;
 
 			if (form.ShowDialog(this) != DialogResult.OK)
@@ -70,10 +66,8 @@ namespace Demo
 		private void btnLoginForm_Click(object sender, EventArgs e)
 		{
 			LoginForm form = new LoginForm();
-			form.Title = "用户登录";
-			form.UserIDLabel = "NTID";
 			form.Authenticator = LoginAuth;
-			form.UserID = "Abin";
+			form.UserName = "Abin";
 
 			if (form.ShowDialog(this) == DialogResult.OK)
 			{
@@ -81,7 +75,7 @@ namespace Demo
 			}
 		}
 
-		bool LoginAuth(string userID, string password)
+		bool LoginAuth(string userName, string password)
 		{
 			if (password != "123")
 			{
@@ -91,5 +85,11 @@ namespace Demo
 
 			return true;
 		}
+	}
+
+	class TestObj
+	{
+		public int ID { get; set; }
+		public string Label { get; set; }
 	}
 }

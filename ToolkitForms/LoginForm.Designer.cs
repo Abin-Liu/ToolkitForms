@@ -28,38 +28,38 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.lblUserID = new System.Windows.Forms.Label();
+			this.lblUserName = new System.Windows.Forms.Label();
 			this.lblPassword = new System.Windows.Forms.Label();
-			this.txtUserID = new System.Windows.Forms.TextBox();
+			this.txtUserName = new System.Windows.Forms.TextBox();
 			this.txtPassword = new System.Windows.Forms.TextBox();
 			this.btnCancel = new System.Windows.Forms.Button();
 			this.btnOK = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
-			// lblUserID
+			// lblUserName
 			// 
-			this.lblUserID.AutoSize = true;
-			this.lblUserID.Location = new System.Drawing.Point(12, 12);
-			this.lblUserID.Name = "lblUserID";
-			this.lblUserID.Size = new System.Drawing.Size(47, 12);
-			this.lblUserID.TabIndex = 0;
-			this.lblUserID.Text = "UserID:";
+			this.lblUserName.Location = new System.Drawing.Point(12, 9);
+			this.lblUserName.Name = "lblUserName";
+			this.lblUserName.Size = new System.Drawing.Size(65, 21);
+			this.lblUserName.TabIndex = 0;
+			this.lblUserName.Text = "User Name";
+			this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// lblPassword
 			// 
-			this.lblPassword.AutoSize = true;
-			this.lblPassword.Location = new System.Drawing.Point(12, 39);
+			this.lblPassword.Location = new System.Drawing.Point(12, 36);
 			this.lblPassword.Name = "lblPassword";
-			this.lblPassword.Size = new System.Drawing.Size(59, 12);
+			this.lblPassword.Size = new System.Drawing.Size(65, 21);
 			this.lblPassword.TabIndex = 2;
-			this.lblPassword.Text = "Password:";
+			this.lblPassword.Text = "Password";
+			this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
-			// txtUserID
+			// txtUserName
 			// 
-			this.txtUserID.Location = new System.Drawing.Point(83, 9);
-			this.txtUserID.Name = "txtUserID";
-			this.txtUserID.Size = new System.Drawing.Size(209, 21);
-			this.txtUserID.TabIndex = 1;
+			this.txtUserName.Location = new System.Drawing.Point(83, 9);
+			this.txtUserName.Name = "txtUserName";
+			this.txtUserName.Size = new System.Drawing.Size(209, 21);
+			this.txtUserName.TabIndex = 1;
 			// 
 			// txtPassword
 			// 
@@ -100,9 +100,9 @@
 			this.Controls.Add(this.btnCancel);
 			this.Controls.Add(this.btnOK);
 			this.Controls.Add(this.txtPassword);
-			this.Controls.Add(this.txtUserID);
+			this.Controls.Add(this.txtUserName);
 			this.Controls.Add(this.lblPassword);
-			this.Controls.Add(this.lblUserID);
+			this.Controls.Add(this.lblUserName);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "LoginForm";
 			this.ShowInTaskbar = false;
@@ -117,9 +117,9 @@
 
 		#endregion
 
-		private System.Windows.Forms.Label lblUserID;
+		private System.Windows.Forms.Label lblUserName;
 		private System.Windows.Forms.Label lblPassword;
-		private System.Windows.Forms.TextBox txtUserID;
+		private System.Windows.Forms.TextBox txtUserName;
 		private System.Windows.Forms.TextBox txtPassword;
 		private System.Windows.Forms.Button btnCancel;
 		private System.Windows.Forms.Button btnOK;

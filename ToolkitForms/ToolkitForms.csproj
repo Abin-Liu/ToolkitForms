@@ -55,6 +55,9 @@
     <Compile Include="InputForm.Designer.cs">
       <DependentUpon>InputForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Localization\ChineseSimplified.cs" />
+    <Compile Include="Localization\ChineseTraditional.cs" />
+    <Compile Include="Localization\Localization.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

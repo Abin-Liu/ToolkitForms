@@ -9,14 +9,9 @@ namespace ToolkitForms
 	public partial class SelectForm : Form
 	{
 		/// <summary>
-		/// 字符串选项列表
+		/// 选项列表
 		/// </summary>
-		public string[] TextArray { get; set; }
-
-		/// <summary>
-		/// 结构选项列表，仅当TextArray为null时才起作用
-		/// </summary>
-		public SelectFormItem[] ObjectArray { get; set; }
+		public string[] Options { get; set; }		
 
 		/// <summary>
 		/// 初始选中项/用户选中项的index，默认为-1
@@ -24,19 +19,19 @@ namespace ToolkitForms
 		public int SelectedIndex { get; set; } = -1;
 
 		/// <summary>
-		/// 初始选中项/用户选中项的Value，默认为null
+		/// 用户选择的选项的字符串值
 		/// </summary>
-		public object SelectedValue { get; set; }
+		public string SelectedValue => Options != null && Options.Length > SelectedIndex ? Options[SelectedIndex] : null;
 
 		/// <summary>
-		/// 窗体标题，默认为"Input"
+		/// 窗体标题，默认为已本地化的"Select"
 		/// </summary>
-		public string Title { get; set; } = "Select";
+		public string Title { get; set; }
 
 		/// <summary>
-		/// 窗体提示，默认为"Please type a value:"
+		/// 窗体提示，默认为已本地化的"Please select an option"
 		/// </summary>
-		public string Message { get; set; } = "Please select an option:";
+		public string Message { get; set; }
 
 		/// <summary>
 		/// 默认构造函数
@@ -48,35 +43,25 @@ namespace ToolkitForms
 
 		private void SelectForm_Load(object sender, EventArgs e)
 		{
-			Text = Title;
-			lblPrompt.Text = Message;
+			Text = Title ?? Localization.Get("Select");
+			lblPrompt.Text = Message ?? Localization.Get("Please select an option");
+			btnOK.Text = Localization.Get("OK");
+			btnCancel.Text = Localization.Get("Cancel");
+			comboBox1.DataSource = Options;
 
-			if (TextArray != null)
-			{
-				comboBox1.DataSource = TextArray;
-				if (SelectedIndex < 0 && SelectedValue != null)
-				{
-					SelectedIndex = Array.IndexOf(TextArray, SelectedValue);
-				}
-			}
-			else if (ObjectArray != null)
-			{
-				comboBox1.DisplayMember = "Label";
-				comboBox1.ValueMember = "Value";
-				comboBox1.DataSource = ObjectArray;
-				comboBox1.SelectedValue = SelectedValue;
-			}
-
-			if (SelectedIndex > -1)
+			try
 			{
 				comboBox1.SelectedIndex = SelectedIndex;
-			}						
+			}
+			catch
+			{
+				SelectedIndex = comboBox1.SelectedIndex;
+			}					
 		}
 
 		private void btnOK_Click(object sender, EventArgs e)
 		{
 			SelectedIndex = comboBox1.SelectedIndex;
-			SelectedValue = comboBox1.SelectedValue;
 			DialogResult = DialogResult.OK;
 		}
 
@@ -86,21 +71,4 @@ namespace ToolkitForms
 			Close();
 		}
 	}
-
-	/// <summary>
-	/// 选择项
-	/// </summary>
-	public class SelectFormItem
-	{
-		/// <summary>
-		/// 选项值
-		/// </summary>
-		public object Value { get; set; }
-
-		/// <summary>
-		/// 选项文本
-		/// </summary>
-		public string Label { get; set; }
-	}
-
 }

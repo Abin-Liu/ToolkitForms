@@ -25,24 +25,14 @@ namespace ToolkitForms
 		public object Parameter { get; set; }
 
 		/// <summary>
-		/// 窗体标题，默认为"Please Wait"
+		/// 窗体标题，默认为已本地化的"Please Wait"
 		/// </summary>
-		public string Title { get; set; } = "Please Wait";
+		public string Title { get; set; }
 
 		/// <summary>
-		/// 窗体文字，默认为"Processing data..."
+		/// 窗体文字，默认为已本地化的"Processing data..."
 		/// </summary>
-		public string Message { get; set; } = "Processing data...";
-
-		/// <summary>
-		/// 用户手动终止线程时看到的确认提示框标题，默认为"Abort"
-		/// </summary>
-		public string AbortTitle { get; set; } = "Abort";
-
-		/// <summary>
-		/// 用户手动终止线程时看到的确认提示框内容，默认为"Process is not completed yet, abort anyway?"
-		/// </summary>
-		public string AbortMessage { get; set; } = "Process is not completed yet, abort anyway?";
+		public string Message { get; set; }	
 
 		/// <summary>
 		/// 线程运行中发生的错误信息
@@ -52,10 +42,9 @@ namespace ToolkitForms
 		/// <summary>
 		/// 线程是否仍在运行中
 		/// </summary>
-		public bool IsAlive { get { return m_thread == null ? false : m_thread.IsAlive; } }
-
-		private Thread m_thread = null;
-		private System.Threading.Timer m_timer = null;
+		private bool IsAlive { get { return m_thread == null ? false : m_thread.IsAlive; } }
+		private Thread m_thread = null; // 线程
+		private System.Threading.Timer m_timer = null; // 定期检查线程是否已结束
 
 
 		/// <summary>
@@ -86,8 +75,9 @@ namespace ToolkitForms
 
 		private void TaskForm_Load(object sender, EventArgs e)
 		{
-			Text = Title;
-			lblPrompt.Text = Message;
+			Text = Title ?? Localization.Get("Please Wait");
+			lblPrompt.Text = Message ?? Localization.Get("Processing data...");
+			btnAbort.Text = Localization.Get("Abort");
 
 			Error = null;
 			m_thread = new Thread(ProcessTask);
@@ -132,12 +122,14 @@ namespace ToolkitForms
 			DialogResult = completed ? DialogResult.OK : DialogResult.Cancel;
 		}
 
+		private static readonly string m_popupTitle = Localization.Get("Abort Task");
+		private static readonly string m_popupMessage = Localization.Get("Process is not completed yet, abort anyway?");
 		private void TaskForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
 			if (IsAlive)
 			{
 				// Display a confirmation if the thread is still alive
-				e.Cancel = MessageBox.Show(this, AbortMessage, AbortTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes;
+				e.Cancel = MessageBox.Show(this, m_popupMessage, m_popupTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes;
 
 				// User has confirmed to abort
 				if (!e.Cancel)
