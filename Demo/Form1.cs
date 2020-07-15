@@ -49,7 +49,7 @@ namespace Demo
 
 		private void btnTaskForm_Click(object sender, EventArgs e)
 		{
-			TaskForm form = new TaskForm();
+			TaskForm form = new TaskForm(false);
 			form.TaskProc = TaskProc;
 			//form.TimeLimit = 1500;
 

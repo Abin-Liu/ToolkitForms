@@ -28,9 +28,11 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskForm));
 			this.lblPrompt = new System.Windows.Forms.Label();
 			this.btnAbort = new System.Windows.Forms.Button();
+			this.timer1 = new System.Windows.Forms.Timer(this.components);
 			this.SuspendLayout();
 			// 
 			// lblPrompt
@@ -40,7 +42,7 @@
 			this.lblPrompt.Size = new System.Drawing.Size(308, 23);
 			this.lblPrompt.TabIndex = 0;
 			this.lblPrompt.Text = "label1";
-			this.lblPrompt.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.lblPrompt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// btnAbort
 			// 
@@ -54,11 +56,15 @@
 			this.btnAbort.UseVisualStyleBackColor = true;
 			this.btnAbort.Click += new System.EventHandler(this.btnAbort_Click);
 			// 
+			// timer1
+			// 
+			this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+			// 
 			// TaskForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(332, 77);
+			this.ClientSize = new System.Drawing.Size(332, 80);
 			this.Controls.Add(this.btnAbort);
 			this.Controls.Add(this.lblPrompt);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -79,5 +85,6 @@
 
 		private System.Windows.Forms.Label lblPrompt;
 		private System.Windows.Forms.Button btnAbort;
+		private System.Windows.Forms.Timer timer1;
 	}
 }

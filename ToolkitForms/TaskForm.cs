@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Threading;
+using System.Runtime.InteropServices;
 
 namespace ToolkitForms
 {
@@ -59,38 +60,34 @@ namespace ToolkitForms
 		/// </summary>
 		private bool IsAlive { get { return m_thread == null ? false : m_thread.IsAlive; } }
 		private Thread m_thread = null; // 线程
-		private System.Threading.Timer m_timer = null; // 定期检查线程是否已结束
 		private DateTime m_startTime;
-
-
-		/// <summary>
-		/// 默认构造函数
-		/// </summary>
-		public TaskForm()
-		{
-			InitializeComponent();
-		}
+		private bool m_abortable = true;		
 
 		/// <summary>
 		/// 构造函数
 		/// </summary>
-		/// <param name="abortable">是否允许用户中途取消任务</param>
-		public TaskForm(bool abortable)
+		/// <param name="abortable">是否允许用户中止任务</param>
+		public TaskForm(bool abortable = true)
 		{
+			m_abortable = abortable;
 			InitializeComponent();
 
 			if (!abortable)
 			{
 				this.SuspendLayout();
-				this.ControlBox = abortable;
 				this.btnAbort.Visible = abortable;
-				this.lblPrompt.Location = new System.Drawing.Point(12, 20);
+				this.lblPrompt.Height *= 2;
 				this.ResumeLayout(false);
 			}
 		}
 
 		private void TaskForm_Load(object sender, EventArgs e)
 		{
+			if (!m_abortable)
+			{
+				DisableCloseBox();
+			}			
+
 			Text = Title ?? Localization.Get("Please Wait");
 			lblPrompt.Text = Message ?? Localization.Get("Processing data...");
 			btnAbort.Text = " " + Localization.Get("Abort");
@@ -102,10 +99,13 @@ namespace ToolkitForms
 			m_thread = new Thread(ProcessTask);
 			m_thread.IsBackground = true;
 			m_thread.Start();
+
+			m_startTime = DateTime.Now;
+			timer1.Enabled = true;
 		}
 
-		// 时钟间隔检查线程是否结束
-		private void OnTimerTick(object data)
+		// 循环检查线程是否结束
+		private void timer1_Tick(object sender, EventArgs e)
 		{
 			if (m_thread.IsAlive)
 			{
@@ -120,14 +120,12 @@ namespace ToolkitForms
 			{
 				Close();
 			}
-		}
+		}		
 
 		// 内部处理函数
 		private void ProcessTask()
-		{
-			m_startTime = DateTime.Now;
+		{			
 			bool completed = false;
-			m_timer = new System.Threading.Timer(OnTimerTick, null, 100, 100);
 
 			try
 			{
@@ -152,7 +150,6 @@ namespace ToolkitForms
 				Error = e.Message;
 			}
 
-			m_timer.Dispose();
 			DialogResult = completed ? DialogResult.OK : DialogResult.Cancel;
 		}
 
@@ -190,5 +187,27 @@ namespace ToolkitForms
 		{
 			Close();
 		}
+
+		#region 禁用窗体右上角关闭按钮
+		[DllImport("user32.dll")]
+		static extern IntPtr GetSystemMenu(IntPtr hwnd, bool bRevert);
+
+		[DllImport("user32.dll")]
+		static extern bool EnableMenuItem(IntPtr hMenu, uint uIDEnableItem, uint uEnable);
+
+		const uint SC_CLOSE = 0xF060;//关闭
+		const uint MF_BYCOMMAND = 0x00; //按命令方式
+		const uint MF_GRAYED = 0x01;    //灰掉
+		const uint MF_DISABLED = 0x02;  //不可用
+
+		private void DisableCloseBox()
+		{
+			IntPtr hMenu = GetSystemMenu(Handle, false); //获取程序窗体的句柄
+			if (hMenu != IntPtr.Zero)
+			{
+				EnableMenuItem(hMenu, SC_CLOSE, MF_BYCOMMAND | MF_GRAYED | MF_DISABLED); //禁用关闭功能
+			}
+		}
+		#endregion		
 	}
 }
