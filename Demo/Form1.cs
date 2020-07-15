@@ -49,9 +49,9 @@ namespace Demo
 
 		private void btnTaskForm_Click(object sender, EventArgs e)
 		{
-			TaskForm form = new TaskForm(false);
+			TaskForm form = new TaskForm();
 			form.TaskProc = TaskProc;
-			//form.TimeLimit = 1500;
+			form.AllowAbort = false;
 
 			if (form.ShowDialog(this) != DialogResult.OK)
 			{

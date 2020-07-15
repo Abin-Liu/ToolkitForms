@@ -36,6 +36,11 @@ namespace ToolkitForms
 		public string Message { get; set; }
 
 		/// <summary>
+		/// 是否允许用户中止任务，为true则显示Abort按钮，默认为true
+		/// </summary>
+		public bool AllowAbort { get; set; } = true;
+
+		/// <summary>
 		/// 限制任务最大运行时间（毫秒），超过则强制中止，0表示无限制，默认为0
 		/// </summary>
 		public int TimeLimit { get; set; }
@@ -61,36 +66,24 @@ namespace ToolkitForms
 		private bool IsAlive { get { return m_thread == null ? false : m_thread.IsAlive; } }
 		private Thread m_thread = null; // 线程
 		private DateTime m_startTime;
-		private bool m_abortable = true;		
 
 		/// <summary>
-		/// 构造函数
+		///默认 构造函数
 		/// </summary>
-		/// <param name="abortable">是否允许用户中止任务</param>
-		public TaskForm(bool abortable = true)
+		public TaskForm()
 		{
-			m_abortable = abortable;
-			InitializeComponent();
-
-			if (!abortable)
-			{
-				this.SuspendLayout();
-				this.btnAbort.Visible = abortable;
-				this.lblPrompt.Height *= 2;
-				this.ResumeLayout(false);
-			}
+			InitializeComponent();			
 		}
 
 		private void TaskForm_Load(object sender, EventArgs e)
 		{
-			if (!m_abortable)
-			{
-				DisableCloseBox();
-			}			
-
 			Text = Title ?? Localization.Get("Please Wait");
 			lblPrompt.Text = Message ?? Localization.Get("Processing data...");
 			btnAbort.Text = " " + Localization.Get("Abort");
+
+			ControlBox = AllowAbort;
+			btnAbort.Visible = AllowAbort;
+			lblPrompt.Height = AllowAbort ? 24 : 48;
 
 			Error = null;
 			Aborted = false;
@@ -186,28 +179,6 @@ namespace ToolkitForms
 		private void btnAbort_Click(object sender, EventArgs e)
 		{
 			Close();
-		}
-
-		#region 禁用窗体右上角关闭按钮
-		[DllImport("user32.dll")]
-		static extern IntPtr GetSystemMenu(IntPtr hwnd, bool bRevert);
-
-		[DllImport("user32.dll")]
-		static extern bool EnableMenuItem(IntPtr hMenu, uint uIDEnableItem, uint uEnable);
-
-		const uint SC_CLOSE = 0xF060;//关闭
-		const uint MF_BYCOMMAND = 0x00; //按命令方式
-		const uint MF_GRAYED = 0x01;    //灰掉
-		const uint MF_DISABLED = 0x02;  //不可用
-
-		private void DisableCloseBox()
-		{
-			IntPtr hMenu = GetSystemMenu(Handle, false); //获取程序窗体的句柄
-			if (hMenu != IntPtr.Zero)
-			{
-				EnableMenuItem(hMenu, SC_CLOSE, MF_BYCOMMAND | MF_GRAYED | MF_DISABLED); //禁用关闭功能
-			}
-		}
-		#endregion		
+		}		
 	}
 }
