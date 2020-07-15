@@ -93,7 +93,7 @@ namespace ToolkitForms
 		{
 			Text = Title ?? Localization.Get("Please Wait");
 			lblPrompt.Text = Message ?? Localization.Get("Processing data...");
-			btnAbort.Text = Localization.Get("Abort");
+			btnAbort.Text = " " + Localization.Get("Abort");
 
 			Error = null;
 			Aborted = false;

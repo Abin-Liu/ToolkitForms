@@ -94,6 +94,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="TaskForm.resx">
       <DependentUpon>TaskForm.cs</DependentUpon>
@@ -109,8 +110,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Icons\Cancel.png" />
     <Content Include="Icons\Input.ico" />
     <Content Include="Icons\Login.ico" />
+    <Content Include="Icons\OK.png" />
     <Content Include="Icons\Select.ico" />
     <Content Include="Icons\Task.ico" />
   </ItemGroup>

@@ -22,6 +22,11 @@ namespace ToolkitForms
 		public string Title { get; set; }
 
 		/// <summary>
+		/// 用户名标签文字
+		/// </summary>
+		public string UserNameLabel { get; set; }
+
+		/// <summary>
 		/// 用户名
 		/// </summary>
 		public string UserName { get; set; }
@@ -47,10 +52,10 @@ namespace ToolkitForms
 		private void LoginForm_Load(object sender, EventArgs e)
 		{
 			Text = Title ?? Localization.Get("User Login");
-			lblUserName.Text = Localization.Get("User Name");
+			lblUserName.Text = UserNameLabel ?? Localization.Get("User Name");
 			lblPassword.Text = Localization.Get("Password");
-			btnOK.Text = Localization.Get("Login");
-			btnCancel.Text = Localization.Get("Cancel");
+			btnOK.Text = " " + Localization.Get("Login");
+			btnCancel.Text = " " + Localization.Get("Cancel");
 
 			if (!string.IsNullOrEmpty(UserName))
 			{

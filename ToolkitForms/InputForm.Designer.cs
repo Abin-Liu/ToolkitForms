@@ -52,22 +52,26 @@
 			// 
 			// btnOK
 			// 
+			this.btnOK.Image = global::ToolkitForms.Properties.Resources.OK;
 			this.btnOK.Location = new System.Drawing.Point(59, 66);
 			this.btnOK.Name = "btnOK";
-			this.btnOK.Size = new System.Drawing.Size(80, 24);
+			this.btnOK.Size = new System.Drawing.Size(80, 26);
 			this.btnOK.TabIndex = 2;
 			this.btnOK.Text = "OK";
+			this.btnOK.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnOK.UseVisualStyleBackColor = true;
 			this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
 			// 
 			// btnCancel
 			// 
 			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnCancel.Location = new System.Drawing.Point(170, 66);
+			this.btnCancel.Image = global::ToolkitForms.Properties.Resources.Cancel;
+			this.btnCancel.Location = new System.Drawing.Point(166, 66);
 			this.btnCancel.Name = "btnCancel";
-			this.btnCancel.Size = new System.Drawing.Size(80, 24);
+			this.btnCancel.Size = new System.Drawing.Size(80, 26);
 			this.btnCancel.TabIndex = 3;
 			this.btnCancel.Text = "Cancel";
+			this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnCancel.UseVisualStyleBackColor = true;
 			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
 			// 

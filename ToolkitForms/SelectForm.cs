@@ -45,8 +45,8 @@ namespace ToolkitForms
 		{
 			Text = Title ?? Localization.Get("Select");
 			lblPrompt.Text = Message ?? Localization.Get("Please select an option");
-			btnOK.Text = Localization.Get("OK");
-			btnCancel.Text = Localization.Get("Cancel");
+			btnOK.Text = " " + Localization.Get("OK");
+			btnCancel.Text = " " + Localization.Get("Cancel");
 			comboBox1.DataSource = Options;
 
 			try

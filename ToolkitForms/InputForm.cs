@@ -58,8 +58,8 @@ namespace ToolkitForms
 		{
 			Text = Title ?? Localization.Get("Input");
 			lblPrompt.Text = Message ?? Localization.Get("Please type a value");
-			btnOK.Text = Localization.Get("OK");
-			btnCancel.Text = Localization.Get("Cancel");
+			btnOK.Text = " " + Localization.Get("OK");
+			btnCancel.Text = " " + Localization.Get("Cancel");
 
 			if (!string.IsNullOrEmpty(Value))
 			{

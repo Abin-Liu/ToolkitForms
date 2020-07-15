@@ -44,11 +44,13 @@
 			// 
 			// btnAbort
 			// 
+			this.btnAbort.Image = global::ToolkitForms.Properties.Resources.Cancel;
 			this.btnAbort.Location = new System.Drawing.Point(131, 38);
 			this.btnAbort.Name = "btnAbort";
-			this.btnAbort.Size = new System.Drawing.Size(75, 23);
+			this.btnAbort.Size = new System.Drawing.Size(80, 26);
 			this.btnAbort.TabIndex = 1;
 			this.btnAbort.Text = "Abort";
+			this.btnAbort.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnAbort.UseVisualStyleBackColor = true;
 			this.btnAbort.Click += new System.EventHandler(this.btnAbort_Click);
 			// 

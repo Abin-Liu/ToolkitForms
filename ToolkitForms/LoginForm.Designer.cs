@@ -41,53 +41,57 @@
 			// 
 			this.lblUserName.Location = new System.Drawing.Point(12, 9);
 			this.lblUserName.Name = "lblUserName";
-			this.lblUserName.Size = new System.Drawing.Size(65, 21);
+			this.lblUserName.Size = new System.Drawing.Size(280, 21);
 			this.lblUserName.TabIndex = 0;
 			this.lblUserName.Text = "User Name";
-			this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.lblUserName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// lblPassword
 			// 
-			this.lblPassword.Location = new System.Drawing.Point(12, 36);
+			this.lblPassword.Location = new System.Drawing.Point(12, 62);
 			this.lblPassword.Name = "lblPassword";
-			this.lblPassword.Size = new System.Drawing.Size(65, 21);
+			this.lblPassword.Size = new System.Drawing.Size(280, 21);
 			this.lblPassword.TabIndex = 2;
 			this.lblPassword.Text = "Password";
-			this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// txtUserName
 			// 
-			this.txtUserName.Location = new System.Drawing.Point(83, 9);
+			this.txtUserName.Location = new System.Drawing.Point(14, 33);
 			this.txtUserName.Name = "txtUserName";
-			this.txtUserName.Size = new System.Drawing.Size(209, 21);
+			this.txtUserName.Size = new System.Drawing.Size(278, 21);
 			this.txtUserName.TabIndex = 1;
 			// 
 			// txtPassword
 			// 
-			this.txtPassword.Location = new System.Drawing.Point(83, 36);
+			this.txtPassword.Location = new System.Drawing.Point(14, 86);
 			this.txtPassword.Name = "txtPassword";
 			this.txtPassword.PasswordChar = '*';
-			this.txtPassword.Size = new System.Drawing.Size(209, 21);
+			this.txtPassword.Size = new System.Drawing.Size(278, 21);
 			this.txtPassword.TabIndex = 3;
 			// 
 			// btnCancel
 			// 
 			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnCancel.Location = new System.Drawing.Point(178, 73);
+			this.btnCancel.Image = global::ToolkitForms.Properties.Resources.Cancel;
+			this.btnCancel.Location = new System.Drawing.Point(165, 125);
 			this.btnCancel.Name = "btnCancel";
-			this.btnCancel.Size = new System.Drawing.Size(80, 24);
+			this.btnCancel.Size = new System.Drawing.Size(80, 26);
 			this.btnCancel.TabIndex = 5;
 			this.btnCancel.Text = "Cancel";
+			this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnCancel.UseVisualStyleBackColor = true;
 			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
 			// 
 			// btnOK
 			// 
-			this.btnOK.Location = new System.Drawing.Point(83, 73);
+			this.btnOK.Image = global::ToolkitForms.Properties.Resources.OK;
+			this.btnOK.Location = new System.Drawing.Point(60, 125);
 			this.btnOK.Name = "btnOK";
-			this.btnOK.Size = new System.Drawing.Size(80, 24);
+			this.btnOK.Size = new System.Drawing.Size(80, 26);
 			this.btnOK.TabIndex = 4;
 			this.btnOK.Text = "Login";
+			this.btnOK.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnOK.UseVisualStyleBackColor = true;
 			this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
 			// 
@@ -97,7 +101,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnCancel;
-			this.ClientSize = new System.Drawing.Size(304, 109);
+			this.ClientSize = new System.Drawing.Size(304, 168);
 			this.Controls.Add(this.btnCancel);
 			this.Controls.Add(this.btnOK);
 			this.Controls.Add(this.txtPassword);
