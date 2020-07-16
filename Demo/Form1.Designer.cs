@@ -32,13 +32,14 @@
 			this.btnInputForm = new System.Windows.Forms.Button();
 			this.btnTaskForm = new System.Windows.Forms.Button();
 			this.btnLoginForm = new System.Windows.Forms.Button();
+			this.btnMessageForm = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// btnSelectForm
 			// 
-			this.btnSelectForm.Location = new System.Drawing.Point(228, 55);
+			this.btnSelectForm.Location = new System.Drawing.Point(228, 60);
 			this.btnSelectForm.Name = "btnSelectForm";
-			this.btnSelectForm.Size = new System.Drawing.Size(90, 26);
+			this.btnSelectForm.Size = new System.Drawing.Size(90, 28);
 			this.btnSelectForm.TabIndex = 3;
 			this.btnSelectForm.Text = "Select";
 			this.btnSelectForm.UseVisualStyleBackColor = true;
@@ -46,9 +47,9 @@
 			// 
 			// btnInputForm
 			// 
-			this.btnInputForm.Location = new System.Drawing.Point(92, 55);
+			this.btnInputForm.Location = new System.Drawing.Point(92, 60);
 			this.btnInputForm.Name = "btnInputForm";
-			this.btnInputForm.Size = new System.Drawing.Size(90, 26);
+			this.btnInputForm.Size = new System.Drawing.Size(90, 28);
 			this.btnInputForm.TabIndex = 2;
 			this.btnInputForm.Text = "Input";
 			this.btnInputForm.UseVisualStyleBackColor = true;
@@ -56,9 +57,9 @@
 			// 
 			// btnTaskForm
 			// 
-			this.btnTaskForm.Location = new System.Drawing.Point(92, 117);
+			this.btnTaskForm.Location = new System.Drawing.Point(92, 127);
 			this.btnTaskForm.Name = "btnTaskForm";
-			this.btnTaskForm.Size = new System.Drawing.Size(90, 26);
+			this.btnTaskForm.Size = new System.Drawing.Size(90, 28);
 			this.btnTaskForm.TabIndex = 4;
 			this.btnTaskForm.Text = "Task";
 			this.btnTaskForm.UseVisualStyleBackColor = true;
@@ -66,19 +67,30 @@
 			// 
 			// btnLoginForm
 			// 
-			this.btnLoginForm.Location = new System.Drawing.Point(228, 117);
+			this.btnLoginForm.Location = new System.Drawing.Point(228, 127);
 			this.btnLoginForm.Name = "btnLoginForm";
-			this.btnLoginForm.Size = new System.Drawing.Size(90, 26);
+			this.btnLoginForm.Size = new System.Drawing.Size(90, 28);
 			this.btnLoginForm.TabIndex = 5;
 			this.btnLoginForm.Text = "Login";
 			this.btnLoginForm.UseVisualStyleBackColor = true;
 			this.btnLoginForm.Click += new System.EventHandler(this.btnLoginForm_Click);
 			// 
+			// btnMessageForm
+			// 
+			this.btnMessageForm.Location = new System.Drawing.Point(92, 187);
+			this.btnMessageForm.Name = "btnMessageForm";
+			this.btnMessageForm.Size = new System.Drawing.Size(90, 28);
+			this.btnMessageForm.TabIndex = 6;
+			this.btnMessageForm.Text = "Message";
+			this.btnMessageForm.UseVisualStyleBackColor = true;
+			this.btnMessageForm.Click += new System.EventHandler(this.btnMessageForm_Click);
+			// 
 			// Form1
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(416, 213);
+			this.ClientSize = new System.Drawing.Size(416, 261);
+			this.Controls.Add(this.btnMessageForm);
 			this.Controls.Add(this.btnLoginForm);
 			this.Controls.Add(this.btnTaskForm);
 			this.Controls.Add(this.btnSelectForm);
@@ -87,7 +99,6 @@
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "Form1";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Form1";
 			this.Load += new System.EventHandler(this.Form1_Load);
 			this.ResumeLayout(false);
@@ -100,6 +111,7 @@
 		private System.Windows.Forms.Button btnInputForm;
 		private System.Windows.Forms.Button btnTaskForm;
 		private System.Windows.Forms.Button btnLoginForm;
+		private System.Windows.Forms.Button btnMessageForm;
 	}
 }
 

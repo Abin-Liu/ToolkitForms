@@ -31,7 +31,7 @@ namespace Demo
 
 			if (form.ShowDialog(this) == DialogResult.OK)
 			{
-				MessageBox.Show(this, form.Value, ProductName);
+				MessageForm.Show(this, form.Value, ProductName);
 			}
 		}
 
@@ -43,7 +43,7 @@ namespace Demo
 
 			if (form.ShowDialog(this) == DialogResult.OK)
 			{
-				MessageBox.Show(this, string.Format("{0}", form.SelectedValue), ProductName);
+				MessageForm.Show(this, string.Format("{0}", form.SelectedValue), ProductName);
 			}
 		}
 
@@ -51,11 +51,11 @@ namespace Demo
 		{
 			TaskForm form = new TaskForm();
 			form.TaskProc = TaskProc;
-			form.AllowAbort = false;
+			form.AllowAbort = true;
 
 			if (form.ShowDialog(this) != DialogResult.OK)
 			{
-				MessageBox.Show(this, form.Error, ProductName);
+				MessageForm.Show(this, form.Error, ProductName);
 			}
 		}
 
@@ -72,7 +72,7 @@ namespace Demo
 
 			if (form.ShowDialog(this) == DialogResult.OK)
 			{
-				MessageBox.Show(this, "登陆成功", ProductName);
+				MessageForm.Show(this, "登陆成功", ProductName);
 			}
 		}
 
@@ -80,11 +80,16 @@ namespace Demo
 		{
 			if (password != "123")
 			{
-				MessageBox.Show("Password must be 123", "Error");
+				MessageForm.Show("Password must be 123", "Error");
 				return false;
 			}
 
 			return true;
+		}
+
+		private void btnMessageForm_Click(object sender, EventArgs e)
+		{
+			MessageForm.Show(this, "看哪，这个是会居中到父窗体的的MessageBox", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 		}
 	}
 
