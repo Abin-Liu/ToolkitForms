@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 /// </summary>
 public class MessageForm
 {
-	#region 公开方法
+	#region 常规方法: 与MessageBox相同
 	/// <summary>
 	/// 显示消息框
 	/// </summary>
@@ -189,6 +189,98 @@ public class MessageForm
 	}
 	#endregion
 
+	#region 单OK按钮快捷方法
+	/// <summary>
+	/// 提示框: 无图标
+	/// </summary>
+	/// <param name="text">消息文字</param>
+	/// <param name="caption">窗体标题，如果为null则使用ProductName</param>
+	/// <returns>用户选择结果</returns>
+	public static DialogResult None(string text, string caption = null)
+	{
+		return ShowShortcut(null, text, caption, MessageBoxIcon.None);
+	}
+	/// <summary>
+	/// 提示框: 无图标
+	/// </summary>
+	/// <param name="owner">要居中显示于的父窗体</param>
+	/// <param name="text">消息文字</param>
+	/// <param name="caption">窗体标题，如果为null则使用ProductName</param>
+	/// <returns>用户选择结果</returns>
+	public static DialogResult None(IWin32Window owner, string text, string caption = null)
+	{
+		return ShowShortcut(owner, text, caption, MessageBoxIcon.None);
+	}
+
+	/// <summary>
+	/// 提示框: 蓝色i图标
+	/// </summary>
+	/// <param name="text">消息文字</param>
+	/// <param name="caption">窗体标题，如果为null则使用ProductName</param>
+	/// <returns>用户选择结果</returns>
+	public static DialogResult Info(string text, string caption = null)
+	{
+		return ShowShortcut(null, text, caption, MessageBoxIcon.Information);
+	}
+	/// <summary>
+	/// 提示框: 蓝色i图标
+	/// </summary>
+	/// <param name="owner">要居中显示于的父窗体</param>
+	/// <param name="text">消息文字</param>
+	/// <param name="caption">窗体标题，如果为null则使用ProductName</param>
+	/// <returns>用户选择结果</returns>
+	public static DialogResult Info(IWin32Window owner, string text, string caption = null)
+	{
+		return ShowShortcut(owner, text, caption, MessageBoxIcon.Information);
+	}
+
+	/// <summary>
+	/// 提示框: 黄色感叹号图标
+	/// </summary>
+	/// <param name="text">消息文字</param>
+	/// <param name="caption">窗体标题，如果为null则使用ProductName</param>
+	/// <returns>用户选择结果</returns>
+	public static DialogResult Warning(string text, string caption = null)
+	{
+		return ShowShortcut(null, text, caption, MessageBoxIcon.Exclamation);
+	}
+
+	/// <summary>
+	/// 提示框: 黄色感叹号图标
+	/// </summary>
+	/// <param name="owner">要居中显示于的父窗体</param>
+	/// <param name="text">消息文字</param>
+	/// <param name="caption">窗体标题，如果为null则使用ProductName</param>
+	/// <returns>用户选择结果</returns>
+	public static DialogResult Warning(IWin32Window owner, string text, string caption = null)
+	{
+		return ShowShortcut(owner, text, caption, MessageBoxIcon.Exclamation);
+	}
+
+	/// <summary>
+	/// 提示框: 红底白叉图标
+	/// </summary>
+	/// <param name="text">消息文字</param>
+	/// <param name="caption">窗体标题，如果为null则使用ProductName</param>
+	/// <returns>用户选择结果</returns>
+	public static DialogResult Error(string text, string caption = null)
+	{
+		return ShowShortcut(null, text, caption, MessageBoxIcon.Error);
+	}
+
+	/// <summary>
+	/// 提示框: 红底白叉图标
+	/// </summary>
+	/// <param name="owner">要居中显示于的父窗体</param>
+	/// <param name="text">消息文字</param>
+	/// <param name="caption">窗体标题，如果为null则使用ProductName</param>
+	/// <returns>用户选择结果</returns>
+	public static DialogResult Error(IWin32Window owner, string text, string caption = null)
+	{
+		return ShowShortcut(owner, text, caption, MessageBoxIcon.Error);
+	}
+	#endregion
+
 	#region 私有成员与方法
 	private static IWin32Window _owner = null;
 	private static HookProc _hookProc = new HookProc(MessageBoxHookProc);
@@ -313,6 +405,17 @@ public class MessageForm
 		ptStart.Y = (ptStart.Y < 0) ? 0 : ptStart.Y;
 
 		int result = MoveWindow(hChildWnd, ptStart.X, ptStart.Y, width, height, false);
+	}
+
+	private static DialogResult ShowShortcut(IWin32Window owner, string text, string caption, MessageBoxIcon icon)
+	{
+		caption = caption ?? Application.ProductName;
+		if (owner == null)
+		{
+			return Show(text, caption, MessageBoxButtons.OK, icon);
+		}
+
+		return Show(owner, text, caption, MessageBoxButtons.OK, icon);
 	}
 	#endregion
 }
