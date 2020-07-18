@@ -385,13 +385,13 @@ public class MessageForm
 	private static void CenterWindow(IntPtr hChildWnd)
 	{
 		Rectangle recChild = new Rectangle(0, 0, 0, 0);
-		bool success = GetWindowRect(hChildWnd, ref recChild);
+		GetWindowRect(hChildWnd, ref recChild);
 
 		int width = recChild.Width - recChild.X;
 		int height = recChild.Height - recChild.Y;
 
 		Rectangle recParent = new Rectangle(0, 0, 0, 0);
-		success = GetWindowRect(_owner.Handle, ref recParent);
+		GetWindowRect(_owner.Handle, ref recParent);
 
 		Point ptCenter = new Point(0, 0);
 		ptCenter.X = recParent.X + ((recParent.Width - recParent.X) / 2);
@@ -404,18 +404,18 @@ public class MessageForm
 		ptStart.X = (ptStart.X < 0) ? 0 : ptStart.X;
 		ptStart.Y = (ptStart.Y < 0) ? 0 : ptStart.Y;
 
-		int result = MoveWindow(hChildWnd, ptStart.X, ptStart.Y, width, height, false);
+		MoveWindow(hChildWnd, ptStart.X, ptStart.Y, width, height, false);
 	}
 
 	private static DialogResult ShowShortcut(IWin32Window owner, string text, string caption, MessageBoxIcon icon)
 	{
-		caption = caption ?? Application.ProductName;
+		caption = caption ?? System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
 		if (owner == null)
 		{
 			return Show(text, caption, MessageBoxButtons.OK, icon);
 		}
 
 		return Show(owner, text, caption, MessageBoxButtons.OK, icon);
-	}
+	}	
 	#endregion
 }

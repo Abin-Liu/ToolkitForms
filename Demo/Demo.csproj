@@ -42,8 +42,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="ToolkitForms">
-      <HintPath>..\ToolkitForms\bin\ToolkitForms.dll</HintPath>
+    <Reference Include="ToolkitForms, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ToolkitForms\distributes\ToolkitForms.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

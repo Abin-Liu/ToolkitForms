@@ -89,7 +89,7 @@ namespace Demo
 
 		private void btnMessageForm_Click(object sender, EventArgs e)
 		{
-			MessageForm.Show(this, "看哪，这个是会居中到父窗体的的MessageBox", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+			MessageForm.Warning(this, "看哪，这个是会居中到父窗体的的MessageBox");
 		}
 	}
 
