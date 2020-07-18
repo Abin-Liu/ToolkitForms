@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.Text;
 using System.Drawing;
 using System.Runtime.InteropServices;
+using System.IO;
 
 // Depreciated API: AppDomain.GetCurrentThreadId()
 #pragma warning disable 0618
@@ -409,13 +410,18 @@ public class MessageForm
 
 	private static DialogResult ShowShortcut(IWin32Window owner, string text, string caption, MessageBoxIcon icon)
 	{
-		caption = caption ?? System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+		caption = caption ?? GetAppTitle();
 		if (owner == null)
 		{
 			return Show(text, caption, MessageBoxButtons.OK, icon);
 		}
 
 		return Show(owner, text, caption, MessageBoxButtons.OK, icon);
-	}	
+	}
+
+	private static string GetAppTitle()
+	{
+		return Path.GetFileNameWithoutExtension(Application.ExecutablePath);
+	}
 	#endregion
 }
