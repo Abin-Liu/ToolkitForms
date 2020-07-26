@@ -9,7 +9,43 @@ namespace ToolkitForms
 	/// 任务线程窗体
 	/// </summary>
 	public partial class TaskForm : Form
-	{
+	{	
+		/// <summary>
+		/// 任务运行结果
+		/// </summary>
+		public enum TaskResults
+		{
+			/// <summary>
+			/// 任务尚未开始
+			/// </summary>
+			None = 0,
+
+			/// <summary>
+			/// 任务运行中
+			/// </summary>
+			Running,
+
+			/// <summary>
+			/// 任务成功结束
+			/// </summary>
+			Success,
+
+			/// <summary>
+			/// 用户取消了任务
+			/// </summary>
+			Aborted,
+
+			/// <summary>
+			/// 任务因超时而被迫终止
+			/// </summary>
+			TimedOut,
+
+			/// <summary>
+			/// 任务因出现异常而终止
+			/// </summary>
+			Error
+		}
+
 		/// <summary>
 		/// 线程工作函数（无参），如果非null则优先运行
 		/// </summary>
@@ -46,26 +82,18 @@ namespace ToolkitForms
 		public int TimeLimit { get; set; }
 
 		/// <summary>
-		/// 任务是否因用户中止而结束
+		/// 任务运行结果
 		/// </summary>
-		public bool Aborted { get; private set; }
-
-		/// <summary>
-		/// 任务是否因运行超时而结束
-		/// </summary>
-		public bool TimedOut { get; private set; }
+		public TaskResults TaskResult { get; private set; } = TaskResults.None;		
 
 		/// <summary>
 		/// 线程运行中发生的错误信息
 		/// </summary>
-		public string Error { get; protected set; }
+		public string Error { get; protected set; }		
 
-		/// <summary>
-		/// 线程是否仍在运行中
-		/// </summary>
-		private bool IsAlive { get { return m_thread == null ? false : m_thread.IsAlive; } }
 		private Thread m_thread = null; // 线程
 		private DateTime m_startTime;
+		private bool m_timedout = false;
 
 		/// <summary>
 		///默认 构造函数
@@ -85,9 +113,9 @@ namespace ToolkitForms
 			btnAbort.Visible = AllowAbort;
 			lblPrompt.Height = AllowAbort ? 24 : 48;
 
-			Error = null;
-			Aborted = false;
-			TimedOut = false;
+			TaskResult = TaskResults.None;
+			m_timedout = false;
+			Error = null;			
 
 			m_thread = new Thread(ProcessTask);
 			m_thread.IsBackground = true;
@@ -95,30 +123,12 @@ namespace ToolkitForms
 
 			m_startTime = DateTime.Now;
 			timer1.Enabled = true;
-		}
-
-		// 循环检查线程是否结束
-		private void timer1_Tick(object sender, EventArgs e)
-		{
-			if (m_thread.IsAlive)
-			{
-				if (TimeLimit > 0 && (DateTime.Now - m_startTime).TotalMilliseconds > TimeLimit)
-				{
-					// 运行超时，强制中止
-					TimedOut = true;
-					m_thread.Abort();
-				}
-			}
-			else
-			{
-				Close();
-			}
 		}		
 
 		// 内部处理函数
 		private void ProcessTask()
-		{			
-			bool completed = false;
+		{
+			TaskResult = TaskResults.Running;
 
 			try
 			{
@@ -131,26 +141,59 @@ namespace ToolkitForms
 					ParameterTaskProc?.Invoke(Parameter);
 				}
 
-				completed = true;
+				TaskResult = TaskResults.Success;
 			}
 			catch (ThreadAbortException)
 			{
-				Aborted = true;
-				Error = Localization.Get(TimedOut ? "Task timed out." : "Task aborted by user.");				
+				if (m_timedout)
+				{
+					TaskResult = TaskResults.TimedOut;
+					Error = Localization.Get("Task timed out.");
+				}
+				else
+				{
+					TaskResult = TaskResults.Aborted;
+					Error = Localization.Get("Task aborted by user.");
+				}				
 			}
 			catch (Exception e)
 			{
+				TaskResult = TaskResults.Error;
 				Error = e.Message;
 			}
+		}
 
-			DialogResult = completed ? DialogResult.OK : DialogResult.Cancel;
+		// 循环检查线程是否结束
+		private void timer1_Tick(object sender, EventArgs e)
+		{
+			if (m_thread.IsAlive)
+			{
+				if (!m_timedout && TimeLimit > 0 && (DateTime.Now - m_startTime).TotalMilliseconds > TimeLimit)
+				{
+					// 运行超时，强制中止
+					m_timedout = true;
+					m_thread.Abort();
+				}
+			}
+			else
+			{
+				timer1.Enabled = false;
+				if (TaskResult == TaskResults.Success)
+				{
+					DialogResult = DialogResult.OK;
+				}
+				else
+				{
+					DialogResult = DialogResult.Cancel;
+				}
+			}
 		}
 
 		private static readonly string m_popupTitle = Localization.Get("Abort Task");
 		private static readonly string m_popupMessage = Localization.Get("Process is not completed yet, abort anyway?");
 		private void TaskForm_FormClosing(object sender, FormClosingEventArgs e)
 		{
-			if (!IsAlive)
+			if (!m_thread.IsAlive)
 			{
 				return;
 			}
@@ -159,7 +202,7 @@ namespace ToolkitForms
 			bool confirmed = MessageForm.Show(this, m_popupMessage, m_popupTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
 
 			// 任务在确认期间自然结束了
-			if (!IsAlive)
+			if (!m_thread.IsAlive)
 			{
 				return;
 			}

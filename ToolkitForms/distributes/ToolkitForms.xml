@@ -247,6 +247,41 @@
             任务线程窗体
             </summary>
         </member>
+        <member name="T:ToolkitForms.TaskForm.TaskResults">
+            <summary>
+            任务运行结果
+            </summary>
+        </member>
+        <member name="F:ToolkitForms.TaskForm.TaskResults.None">
+            <summary>
+            任务尚未开始
+            </summary>
+        </member>
+        <member name="F:ToolkitForms.TaskForm.TaskResults.Running">
+            <summary>
+            任务运行中
+            </summary>
+        </member>
+        <member name="F:ToolkitForms.TaskForm.TaskResults.Success">
+            <summary>
+            任务成功结束
+            </summary>
+        </member>
+        <member name="F:ToolkitForms.TaskForm.TaskResults.Aborted">
+            <summary>
+            用户取消了任务
+            </summary>
+        </member>
+        <member name="F:ToolkitForms.TaskForm.TaskResults.TimedOut">
+            <summary>
+            任务因超时而被迫终止
+            </summary>
+        </member>
+        <member name="F:ToolkitForms.TaskForm.TaskResults.Error">
+            <summary>
+            任务因出现异常而终止
+            </summary>
+        </member>
         <member name="P:ToolkitForms.TaskForm.TaskProc">
             <summary>
             线程工作函数（无参），如果非null则优先运行
@@ -282,24 +317,14 @@
             限制任务最大运行时间（毫秒），超过则强制中止，0表示无限制，默认为0
             </summary>
         </member>
-        <member name="P:ToolkitForms.TaskForm.Aborted">
+        <member name="P:ToolkitForms.TaskForm.TaskResult">
             <summary>
-            任务是否因用户中止而结束
-            </summary>
-        </member>
-        <member name="P:ToolkitForms.TaskForm.TimedOut">
-            <summary>
-            任务是否因运行超时而结束
+            任务运行结果
             </summary>
         </member>
         <member name="P:ToolkitForms.TaskForm.Error">
             <summary>
             线程运行中发生的错误信息
-            </summary>
-        </member>
-        <member name="P:ToolkitForms.TaskForm.IsAlive">
-            <summary>
-            线程是否仍在运行中
             </summary>
         </member>
         <member name="M:ToolkitForms.TaskForm.#ctor">
