@@ -49,6 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HotkeyData.cs" />
+    <Compile Include="HotkeyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HotkeyForm.Designer.cs">
+      <DependentUpon>HotkeyForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="InputForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +85,9 @@
     <Compile Include="TaskForm.Designer.cs">
       <DependentUpon>TaskForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="HotkeyForm.resx">
+      <DependentUpon>HotkeyForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InputForm.resx">
       <DependentUpon>InputForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icons\Cancel.png" />
+    <Content Include="Icons\Hotkey.ico" />
     <Content Include="Icons\Input.ico" />
     <Content Include="Icons\Login.ico" />
     <Content Include="Icons\OK.png" />
