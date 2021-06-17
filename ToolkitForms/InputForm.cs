@@ -34,12 +34,7 @@ namespace ToolkitForms
 		/// <summary>
 		/// 自定义校验委托，后于Regex被执行
 		/// </summary>
-		public InputFormValidateDelegate Validator { get; set; }
-
-		/// <summary>
-		/// 窗体标题，默认为已本地化的"Input"
-		/// </summary>
-		public string Title { get; set; }
+		public InputFormValidateDelegate Validator { get; set; }		
 
 		/// <summary>
 		/// 窗体提示，默认为已本地化的"Please type a value"
@@ -52,11 +47,11 @@ namespace ToolkitForms
 		public InputForm()
 		{
 			InitializeComponent();
+			Text = Localization.Get("Input");
 		}
 
 		private void InputForm_Load(object sender, EventArgs e)
 		{
-			Text = Title ?? Localization.Get("Input");
 			lblPrompt.Text = Message ?? Localization.Get("Please type a value");
 			btnOK.Text = " " + Localization.Get("OK");
 			btnCancel.Text = " " + Localization.Get("Cancel");

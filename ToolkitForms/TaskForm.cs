@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Threading;
-using System.Runtime.InteropServices;
 
 namespace ToolkitForms
 {
@@ -47,6 +46,12 @@ namespace ToolkitForms
 		}
 
 		/// <summary>
+		/// 获取当前进度值的回调
+		/// </summary>
+		/// <returns>当前进度值</returns>
+		public delegate int ProgressValueDelegate();
+
+		/// <summary>
 		/// 线程工作函数（无参），如果非null则优先运行
 		/// </summary>
 		public ThreadStart TaskProc { get; set; }
@@ -59,17 +64,27 @@ namespace ToolkitForms
 		/// <summary>
 		/// ParameterThreadProc的参数
 		/// </summary>
-		public object Parameter { get; set; }
-
-		/// <summary>
-		/// 窗体标题，默认为已本地化的"Please Wait"
-		/// </summary>
-		public string Title { get; set; }
+		public object Parameter { get; set; }		
 
 		/// <summary>
 		/// 窗体文字，默认为已本地化的"Processing data..."
 		/// </summary>
-		public string Message { get; set; }
+		public string Message { get; set; }		
+
+		/// <summary>
+		/// 进度条文字，默认为"{Value}/{Max} ({Percent})" => 32/100 (32%)
+		/// </summary>
+		public string ProgressFormat { get; set; } = "{value}/{max} ({percent})";
+
+		/// <summary>
+		/// 进度条上限值，如果为0则不显示进度条
+		/// </summary>
+		public int ProgressMax { get; set; }
+
+		/// <summary>
+		/// 获取当前进度值的委托，如果为null则不显示进度条
+		/// </summary>
+		public ProgressValueDelegate ProgressValue { get; set; }
 
 		/// <summary>
 		/// 是否允许用户中止任务，为true则显示Abort按钮，默认为true
@@ -94,24 +109,52 @@ namespace ToolkitForms
 		private Thread m_thread = null; // 线程
 		private DateTime m_startTime;
 		private bool m_timedout = false;
+		private bool m_hasProgress = false;
 
 		/// <summary>
 		///默认 构造函数
 		/// </summary>
 		public TaskForm()
 		{
-			InitializeComponent();			
+			InitializeComponent();
+			Text = Localization.Get("Please Wait");
 		}
 
 		private void TaskForm_Load(object sender, EventArgs e)
-		{
-			Text = Title ?? Localization.Get("Please Wait");
+		{			
 			lblPrompt.Text = Message ?? Localization.Get("Processing data...");
 			btnAbort.Text = " " + Localization.Get("Abort");
 
 			ControlBox = AllowAbort;
 			btnAbort.Visible = AllowAbort;
-			lblPrompt.Height = AllowAbort ? 24 : 48;
+
+			m_hasProgress = ProgressMax > 0 && ProgressValue != null;
+			progressBar1.Visible = m_hasProgress;
+			lblProgress.Visible = m_hasProgress;
+
+			int height = Height;
+			if (!AllowAbort)
+			{
+				height -= btnAbort.Height;
+			}
+
+			if (!m_hasProgress)
+			{
+				height -= progressBar1.Height;
+				height -= lblProgress.Height;
+			}
+
+			if (height != Height)
+			{
+				Height = height;
+			}
+
+			if (m_hasProgress)
+			{
+				progressBar1.Minimum = 0;
+				progressBar1.Maximum = ProgressMax;
+				progressBar1.Value = 0;
+			}
 
 			TaskResult = TaskResults.None;
 			m_timedout = false;
@@ -168,6 +211,8 @@ namespace ToolkitForms
 		{
 			if (m_thread.IsAlive)
 			{
+				UpdateProgressBar();
+
 				if (!m_timedout && TimeLimit > 0 && (DateTime.Now - m_startTime).TotalMilliseconds > TimeLimit)
 				{
 					// 运行超时，强制中止
@@ -222,6 +267,37 @@ namespace ToolkitForms
 		private void btnAbort_Click(object sender, EventArgs e)
 		{
 			Close();
-		}		
+		}
+		
+		private void UpdateProgressBar()
+		{
+			if (!m_hasProgress)
+			{
+				return;
+			}
+
+			int value = ProgressValue();
+			if (value < 0)
+			{
+				value = 0;
+			}
+
+			if (value > ProgressMax)
+			{
+				value = ProgressMax;
+			}
+
+			progressBar1.Value = value;
+
+			// {value}/{max} ({percent})
+			string text = ProgressFormat;
+			text = text.Replace("{value}", value.ToString());
+			text = text.Replace("{max}", ProgressMax.ToString());
+			text = text.Replace("{percent}", string.Format("{0:P0}", (double)value / ProgressMax));
+			if (text != lblProgress.Text)
+			{
+				lblProgress.Text = text;
+			}
+		}
 	}
 }

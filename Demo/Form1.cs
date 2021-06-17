@@ -51,6 +51,10 @@ namespace Demo
 			TaskForm form = new TaskForm();
 			form.TaskProc = TaskProc;
 			form.AllowAbort = true;
+			form.ProgressMax = 100;
+			form.ProgressValue = GetProgressValue;
+
+			m_progValue = 0;
 
 			if (form.ShowDialog(this) != DialogResult.OK)
 			{
@@ -58,9 +62,19 @@ namespace Demo
 			}
 		}
 
+		int m_progValue = 0;
+		int GetProgressValue()
+		{
+			return m_progValue;
+		}
+
 		void TaskProc()
 		{
-			Thread.Sleep(3000);
+			while (m_progValue < 100)
+			{
+				m_progValue++;
+				Thread.Sleep(100);
+			}
 		}
 
 		private void btnLoginForm_Click(object sender, EventArgs e)

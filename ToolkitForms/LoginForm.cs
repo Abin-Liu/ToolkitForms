@@ -17,11 +17,6 @@ namespace ToolkitForms
 	public partial class LoginForm : Form
 	{
 		/// <summary>
-		/// 窗体标题，默认为已本地化的"User Login"
-		/// </summary>
-		public string Title { get; set; }
-
-		/// <summary>
 		/// 用户名标签文字
 		/// </summary>
 		public string UserNameLabel { get; set; }
@@ -47,11 +42,11 @@ namespace ToolkitForms
 		public LoginForm()
 		{
 			InitializeComponent();
+			Text = Localization.Get("User Login");
 		}
 
 		private void LoginForm_Load(object sender, EventArgs e)
-		{
-			Text = Title ?? Localization.Get("User Login");
+		{			
 			lblUserName.Text = UserNameLabel ?? Localization.Get("User Name");
 			lblPassword.Text = Localization.Get("Password");
 			btnOK.Text = " " + Localization.Get("Login");

@@ -163,11 +163,6 @@
             自定义校验委托，后于Regex被执行
             </summary>
         </member>
-        <member name="P:ToolkitForms.InputForm.Title">
-            <summary>
-            窗体标题，默认为已本地化的"Input"
-            </summary>
-        </member>
         <member name="P:ToolkitForms.InputForm.Message">
             <summary>
             窗体提示，默认为已本地化的"Please type a value"
@@ -270,11 +265,6 @@
             登录框体
             </summary>
         </member>
-        <member name="P:ToolkitForms.LoginForm.Title">
-            <summary>
-            窗体标题，默认为已本地化的"User Login"
-            </summary>
-        </member>
         <member name="P:ToolkitForms.LoginForm.UserNameLabel">
             <summary>
             用户名标签文字
@@ -335,11 +325,6 @@
         <member name="P:ToolkitForms.SelectForm.SelectedValue">
             <summary>
             用户选择的选项的字符串值
-            </summary>
-        </member>
-        <member name="P:ToolkitForms.SelectForm.Title">
-            <summary>
-            窗体标题，默认为已本地化的"Select"
             </summary>
         </member>
         <member name="P:ToolkitForms.SelectForm.Message">
@@ -409,6 +394,12 @@
             任务因出现异常而终止
             </summary>
         </member>
+        <member name="T:ToolkitForms.TaskForm.ProgressValueDelegate">
+            <summary>
+            获取当前进度值的回调
+            </summary>
+            <returns>当前进度值</returns>
+        </member>
         <member name="P:ToolkitForms.TaskForm.TaskProc">
             <summary>
             线程工作函数（无参），如果非null则优先运行
@@ -424,14 +415,24 @@
             ParameterThreadProc的参数
             </summary>
         </member>
-        <member name="P:ToolkitForms.TaskForm.Title">
-            <summary>
-            窗体标题，默认为已本地化的"Please Wait"
-            </summary>
-        </member>
         <member name="P:ToolkitForms.TaskForm.Message">
             <summary>
             窗体文字，默认为已本地化的"Processing data..."
+            </summary>
+        </member>
+        <member name="P:ToolkitForms.TaskForm.ProgressFormat">
+            <summary>
+            进度条文字，默认为"{Value}/{Max} ({Percent})" => 32/100 (32%)
+            </summary>
+        </member>
+        <member name="P:ToolkitForms.TaskForm.ProgressMax">
+            <summary>
+            进度条上限值，如果为0则不显示进度条
+            </summary>
+        </member>
+        <member name="P:ToolkitForms.TaskForm.ProgressValue">
+            <summary>
+            获取当前进度值的委托，如果为null则不显示进度条
             </summary>
         </member>
         <member name="P:ToolkitForms.TaskForm.AllowAbort">

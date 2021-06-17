@@ -24,11 +24,6 @@ namespace ToolkitForms
 		public string SelectedValue => Options != null && Options.Length > SelectedIndex ? Options[SelectedIndex] : null;
 
 		/// <summary>
-		/// 窗体标题，默认为已本地化的"Select"
-		/// </summary>
-		public string Title { get; set; }
-
-		/// <summary>
 		/// 窗体提示，默认为已本地化的"Please select an option"
 		/// </summary>
 		public string Message { get; set; }
@@ -39,11 +34,11 @@ namespace ToolkitForms
 		public SelectForm()
 		{
 			InitializeComponent();
+			Text = Localization.Get("Select");
 		}
 
 		private void SelectForm_Load(object sender, EventArgs e)
-		{
-			Text = Title ?? Localization.Get("Select");
+		{			
 			lblPrompt.Text = Message ?? Localization.Get("Please select an option");
 			btnOK.Text = " " + Localization.Get("OK");
 			btnCancel.Text = " " + Localization.Get("Cancel");

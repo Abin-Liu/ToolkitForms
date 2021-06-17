@@ -22,6 +22,7 @@ namespace ToolkitForms
 		public HotkeyForm()
 		{
 			InitializeComponent();
+			Text = Localization.Get("Hotkey");
 			Hotkey = new HotkeyData();
 		}		
 

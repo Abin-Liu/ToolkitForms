@@ -37,6 +37,7 @@ namespace ToolkitForms
 			{ "Task timed out.", "任務已超時。" },
 
 			// HotkeyForm
+			{ "Hotkey", "按鍵設置"},
 			{ "Modifiers:", "組合鍵："},
 			{ "Key:", "按鍵："},
 		};
