@@ -294,10 +294,18 @@ namespace ToolkitForms
 			text = text.Replace("{value}", value.ToString());
 			text = text.Replace("{max}", ProgressMax.ToString());
 			text = text.Replace("{percent}", string.Format("{0:P0}", (double)value / ProgressMax));
+
+			if (text.Contains("{vps}"))
+			{
+				double seconds = (DateTime.Now - m_startTime).TotalSeconds;
+				int vps = (int)(seconds > 0.1 ? (double)value / seconds : 0.0);
+				text = text.Replace("{vps}", vps.ToString());
+			}
+
 			if (text != lblProgress.Text)
 			{
 				lblProgress.Text = text;
 			}
-		}
+		}		
 	}
 }

@@ -53,6 +53,7 @@ namespace Demo
 			form.AllowAbort = true;
 			form.ProgressMax = 100;
 			form.ProgressValue = GetProgressValue;
+			form.ProgressFormat = "{value}/{max} ({vps}/s)";
 
 			m_progValue = 0;
 
