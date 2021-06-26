@@ -34,6 +34,18 @@ namespace Demo
 			}
 		}
 
+		private void btnTextAreaForm_Click(object sender, EventArgs e)
+		{
+			InputForm form = new InputForm();
+			form.Message = "请输入多行文字：";			
+			form.Multiline = true;
+
+			if (form.ShowDialog(this) == DialogResult.OK)
+			{
+				MessageForm.Show(this, form.Value, ProductName);
+			}
+		}
+
 		private void btnSelectForm_Click(object sender, EventArgs e)
 		{
 			SelectForm form = new SelectForm();
@@ -123,7 +135,7 @@ namespace Demo
 			//string name = e.KeyCode.ToString();
 			//int value = (int)e.KeyCode;
 			//MessageForm.Show(this, name + ", " + value);
-		}
+		}		
 	}
 
 	class TestObj

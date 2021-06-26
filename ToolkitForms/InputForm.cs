@@ -42,12 +42,17 @@ namespace ToolkitForms
 		public string Message { get; set; }
 
 		/// <summary>
+		/// 是否允许多行输入
+		/// </summary>
+		public bool Multiline { get; set; }		
+
+		/// <summary>
 		/// 默认构造函数
 		/// </summary>
 		public InputForm()
 		{
 			InitializeComponent();
-			Text = Localization.Get("Input");
+			Text = Localization.Get("Input");			
 		}
 
 		private void InputForm_Load(object sender, EventArgs e)
@@ -60,6 +65,23 @@ namespace ToolkitForms
 			{
 				txtValue.Text = Value;
 			}
+
+			txtValue.Multiline = Multiline;
+			if (Multiline)
+			{
+				txtValue.AcceptsReturn = true;
+				txtValue.AcceptsTab = true;
+				txtValue.WordWrap = true;
+				txtValue.ScrollBars = ScrollBars.Vertical;
+
+				if (txtValue.Height < 30)
+				{
+					Width = 480;
+					Height = 320;
+				}
+			}
+
+			CenterToParent();
 		}
 
 		// 点击OK按钮

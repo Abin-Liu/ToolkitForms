@@ -37,6 +37,7 @@
 			// 
 			// btnCancel
 			// 
+			this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btnCancel.Image = global::ToolkitForms.Properties.Resources.Cancel;
 			this.btnCancel.Location = new System.Drawing.Point(166, 67);
@@ -50,6 +51,7 @@
 			// 
 			// btnOK
 			// 
+			this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.btnOK.Image = global::ToolkitForms.Properties.Resources.OK;
 			this.btnOK.Location = new System.Drawing.Point(59, 67);
 			this.btnOK.Name = "btnOK";
@@ -70,6 +72,8 @@
 			// 
 			// comboBox1
 			// 
+			this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBox1.FormattingEnabled = true;
 			this.comboBox1.Location = new System.Drawing.Point(12, 31);

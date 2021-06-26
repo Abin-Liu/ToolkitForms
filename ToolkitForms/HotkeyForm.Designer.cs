@@ -106,6 +106,8 @@
 			// 
 			// cmbKey
 			// 
+			this.cmbKey.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.cmbKey.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmbKey.FormattingEnabled = true;
 			this.cmbKey.Location = new System.Drawing.Point(26, 90);
@@ -115,6 +117,7 @@
 			// 
 			// btnOK
 			// 
+			this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.btnOK.Image = global::ToolkitForms.Properties.Resources.OK;
 			this.btnOK.Location = new System.Drawing.Point(51, 130);
 			this.btnOK.Name = "btnOK";
@@ -127,6 +130,7 @@
 			// 
 			// btnCancel
 			// 
+			this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btnCancel.Image = global::ToolkitForms.Properties.Resources.Cancel;
 			this.btnCancel.Location = new System.Drawing.Point(156, 130);

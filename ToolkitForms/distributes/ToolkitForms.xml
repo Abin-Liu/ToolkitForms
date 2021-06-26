@@ -168,6 +168,11 @@
             窗体提示，默认为已本地化的"Please type a value"
             </summary>
         </member>
+        <member name="P:ToolkitForms.InputForm.Multiline">
+            <summary>
+            是否允许多行输入
+            </summary>
+        </member>
         <member name="M:ToolkitForms.InputForm.#ctor">
             <summary>
             默认构造函数

@@ -45,6 +45,9 @@
 			// 
 			// txtValue
 			// 
+			this.txtValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtValue.Location = new System.Drawing.Point(12, 30);
 			this.txtValue.Name = "txtValue";
 			this.txtValue.Size = new System.Drawing.Size(280, 21);
@@ -52,6 +55,7 @@
 			// 
 			// btnOK
 			// 
+			this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.btnOK.Image = global::ToolkitForms.Properties.Resources.OK;
 			this.btnOK.Location = new System.Drawing.Point(59, 66);
 			this.btnOK.Name = "btnOK";
@@ -64,6 +68,7 @@
 			// 
 			// btnCancel
 			// 
+			this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btnCancel.Image = global::ToolkitForms.Properties.Resources.Cancel;
 			this.btnCancel.Location = new System.Drawing.Point(166, 66);
