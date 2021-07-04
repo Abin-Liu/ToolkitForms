@@ -220,12 +220,13 @@ namespace ToolkitForms
 
 		static HotkeyData()
 		{
-			m_keyMap.Add(Keys.Oemtilde, "Oemtilde");
+			m_keyMap.Add(Keys.Oemtilde, "OemTilde");
 			m_keyMap.Add(Keys.OemOpenBrackets, "OemOpenBrackets");
 			m_keyMap.Add(Keys.OemCloseBrackets, "OemCloseBrackets");
 			m_keyMap.Add(Keys.OemPipe, "OemPipe");
 			m_keyMap.Add(Keys.OemSemicolon, "OemSemicolon");
 			m_keyMap.Add(Keys.OemQuotes, "OemQuotes");
+			m_keyMap.Add(Keys.PageDown, "PageDown");
 
 			m_availableKeys.Add(Keys.None);
 
@@ -258,26 +259,22 @@ namespace ToolkitForms
 
 			m_availableKeys.Add(Keys.Oemtilde); // `
 			m_availableKeys.Add(Keys.OemMinus); // -
-			m_availableKeys.Add(Keys.Oemplus); // +
-
-			m_availableKeys.Add(Keys.Tab);
+			m_availableKeys.Add(Keys.Oemplus); // +			
 			m_availableKeys.Add(Keys.OemOpenBrackets); // {
 			m_availableKeys.Add(Keys.OemCloseBrackets); // }
-			m_availableKeys.Add(Keys.OemPipe); // |
-
-			m_availableKeys.Add(Keys.CapsLock);
+			m_availableKeys.Add(Keys.OemPipe); // |			
 			m_availableKeys.Add(Keys.OemSemicolon); // ;
 			m_availableKeys.Add(Keys.OemQuotes); // '
-
 			m_availableKeys.Add(Keys.Oemcomma); // ,
 			m_availableKeys.Add(Keys.OemPeriod); // .
 			m_availableKeys.Add(Keys.OemQuestion); // /
 
+			m_availableKeys.Add(Keys.Tab);
+			m_availableKeys.Add(Keys.CapsLock);
 			m_availableKeys.Add(Keys.Space);
 
 			m_availableKeys.Add(Keys.Scroll);
 			m_availableKeys.Add(Keys.Pause);
-
 			m_availableKeys.Add(Keys.Insert);
 			m_availableKeys.Add(Keys.Delete);
 			m_availableKeys.Add(Keys.Home);
