@@ -59,27 +59,27 @@
 			// lblModifiers
 			// 
 			this.lblModifiers.AutoSize = true;
-			this.lblModifiers.Location = new System.Drawing.Point(12, 9);
+			this.lblModifiers.Location = new System.Drawing.Point(12, 10);
 			this.lblModifiers.Name = "lblModifiers";
-			this.lblModifiers.Size = new System.Drawing.Size(65, 12);
+			this.lblModifiers.Size = new System.Drawing.Size(52, 13);
 			this.lblModifiers.TabIndex = 0;
 			this.lblModifiers.Text = "Modifiers:";
 			// 
 			// lblKey
 			// 
 			this.lblKey.AutoSize = true;
-			this.lblKey.Location = new System.Drawing.Point(12, 64);
+			this.lblKey.Location = new System.Drawing.Point(12, 69);
 			this.lblKey.Name = "lblKey";
-			this.lblKey.Size = new System.Drawing.Size(29, 12);
+			this.lblKey.Size = new System.Drawing.Size(28, 13);
 			this.lblKey.TabIndex = 4;
 			this.lblKey.Text = "Key:";
 			// 
 			// chkCtrl
 			// 
 			this.chkCtrl.AutoSize = true;
-			this.chkCtrl.Location = new System.Drawing.Point(26, 31);
+			this.chkCtrl.Location = new System.Drawing.Point(26, 34);
 			this.chkCtrl.Name = "chkCtrl";
-			this.chkCtrl.Size = new System.Drawing.Size(48, 16);
+			this.chkCtrl.Size = new System.Drawing.Size(41, 17);
 			this.chkCtrl.TabIndex = 1;
 			this.chkCtrl.Text = "Ctrl";
 			this.chkCtrl.UseVisualStyleBackColor = true;
@@ -87,9 +87,9 @@
 			// chkShift
 			// 
 			this.chkShift.AutoSize = true;
-			this.chkShift.Location = new System.Drawing.Point(104, 31);
+			this.chkShift.Location = new System.Drawing.Point(104, 34);
 			this.chkShift.Name = "chkShift";
-			this.chkShift.Size = new System.Drawing.Size(54, 16);
+			this.chkShift.Size = new System.Drawing.Size(47, 17);
 			this.chkShift.TabIndex = 2;
 			this.chkShift.Text = "Shift";
 			this.chkShift.UseVisualStyleBackColor = true;
@@ -97,9 +97,9 @@
 			// chkAlt
 			// 
 			this.chkAlt.AutoSize = true;
-			this.chkAlt.Location = new System.Drawing.Point(194, 31);
+			this.chkAlt.Location = new System.Drawing.Point(194, 34);
 			this.chkAlt.Name = "chkAlt";
-			this.chkAlt.Size = new System.Drawing.Size(42, 16);
+			this.chkAlt.Size = new System.Drawing.Size(38, 17);
 			this.chkAlt.TabIndex = 3;
 			this.chkAlt.Text = "Alt";
 			this.chkAlt.UseVisualStyleBackColor = true;
@@ -110,18 +110,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.cmbKey.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cmbKey.FormattingEnabled = true;
-			this.cmbKey.Location = new System.Drawing.Point(26, 90);
+			this.cmbKey.Location = new System.Drawing.Point(26, 98);
 			this.cmbKey.Name = "cmbKey";
-			this.cmbKey.Size = new System.Drawing.Size(230, 20);
+			this.cmbKey.Size = new System.Drawing.Size(230, 21);
 			this.cmbKey.TabIndex = 5;
 			// 
 			// btnOK
 			// 
 			this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.btnOK.Image = global::ToolkitForms.Properties.Resources.OK;
-			this.btnOK.Location = new System.Drawing.Point(51, 130);
+			this.btnOK.Location = new System.Drawing.Point(51, 141);
 			this.btnOK.Name = "btnOK";
-			this.btnOK.Size = new System.Drawing.Size(80, 26);
+			this.btnOK.Size = new System.Drawing.Size(80, 28);
 			this.btnOK.TabIndex = 6;
 			this.btnOK.Text = "OK";
 			this.btnOK.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -133,9 +133,9 @@
 			this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btnCancel.Image = global::ToolkitForms.Properties.Resources.Cancel;
-			this.btnCancel.Location = new System.Drawing.Point(156, 130);
+			this.btnCancel.Location = new System.Drawing.Point(156, 141);
 			this.btnCancel.Name = "btnCancel";
-			this.btnCancel.Size = new System.Drawing.Size(80, 26);
+			this.btnCancel.Size = new System.Drawing.Size(80, 28);
 			this.btnCancel.TabIndex = 7;
 			this.btnCancel.Text = "Cancel";
 			this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -145,10 +145,10 @@
 			// HotkeyForm
 			// 
 			this.AcceptButton = this.btnOK;
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnCancel;
-			this.ClientSize = new System.Drawing.Size(287, 171);
+			this.ClientSize = new System.Drawing.Size(287, 185);
 			this.Controls.Add(this.btnCancel);
 			this.Controls.Add(this.btnOK);
 			this.Controls.Add(this.cmbKey);

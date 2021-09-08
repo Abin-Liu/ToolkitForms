@@ -4,12 +4,11 @@ using System.Windows.Forms;
 namespace ToolkitForms
 {
 	/// <summary>
-	/// LoginForm登录验证委托
+	/// LoginForm登录验证委托，抛出异常表示登录失败
 	/// </summary>
 	/// <param name="userName">用户名</param>
 	/// <param name="password">密码</param>
-	/// <returns>验证通过返回true，失败返回false</returns>
-	public delegate bool LoginFormAuthDelegate(string userName, string password);
+	public delegate void LoginFormAuthDelegate(string userName, string password);
 
 	/// <summary>
 	/// 登录框体
@@ -34,7 +33,12 @@ namespace ToolkitForms
 		/// <summary>
 		/// 登录验证委托
 		/// </summary>
-		public LoginFormAuthDelegate Authenticator { get; set; }		
+		public LoginFormAuthDelegate Authenticator { get; set; }
+
+		/// <summary>
+		/// 验证失败提示框标题文字，默认为已本地化的"Login Failed"
+		/// </summary>
+		public string FailCaption { get; set; }
 
 		/// <summary>
 		/// 默认构造函数
@@ -46,7 +50,8 @@ namespace ToolkitForms
 		}
 
 		private void LoginForm_Load(object sender, EventArgs e)
-		{			
+		{
+			FailCaption = FailCaption ?? Localization.Get("Login Failed");
 			lblUserName.Text = UserNameLabel ?? Localization.Get("User Name");
 			lblPassword.Text = Localization.Get("Password");
 			btnOK.Text = " " + Localization.Get("Login");
@@ -84,17 +89,31 @@ namespace ToolkitForms
 				return;
 			}
 
-			if (Authenticator != null && !Authenticator(userName, password))
+			bool success = true;
+			if (Authenticator != null)
+			{
+				try
+				{
+					Authenticator(userName, password);
+				}
+				catch (Exception ex)
+				{
+					success = false;
+					MessageForm.Error(this, ex.Message ?? "Authentication failed.", FailCaption);
+				}
+			}
+
+			if (success)
+			{
+				UserName = userName;
+				Password = password;
+				DialogResult = DialogResult.OK;
+			}
+			else
 			{
 				txtPassword.Focus();
 				txtPassword.SelectAll();
-				return;
-			}
-
-			UserName = userName;
-			Password = password;
-			DialogResult = DialogResult.OK;
-			Close();
+			}			
 		}
 
 		private void btnCancel_Click(object sender, EventArgs e)

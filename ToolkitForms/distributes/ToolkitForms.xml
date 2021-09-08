@@ -259,11 +259,10 @@
         </member>
         <member name="T:ToolkitForms.LoginFormAuthDelegate">
             <summary>
-            LoginForm登录验证委托
+            LoginForm登录验证委托，抛出异常表示登录失败
             </summary>
             <param name="userName">用户名</param>
             <param name="password">密码</param>
-            <returns>验证通过返回true，失败返回false</returns>
         </member>
         <member name="T:ToolkitForms.LoginForm">
             <summary>
@@ -288,6 +287,11 @@
         <member name="P:ToolkitForms.LoginForm.Authenticator">
             <summary>
             登录验证委托
+            </summary>
+        </member>
+        <member name="P:ToolkitForms.LoginForm.FailCaption">
+            <summary>
+            验证失败提示框标题文字，默认为已本地化的"Login Failed"
             </summary>
         </member>
         <member name="M:ToolkitForms.LoginForm.#ctor">
@@ -354,6 +358,48 @@
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
         <member name="M:ToolkitForms.SelectForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:ToolkitForms.SwipeForm">
+            <summary>
+            刷卡窗体
+            </summary>
+        </member>
+        <member name="P:ToolkitForms.SwipeForm.Interval">
+            <summary>
+            允许字符间最大输入间隔（毫秒），默认为100
+            </summary>
+        </member>
+        <member name="P:ToolkitForms.SwipeForm.MinLength">
+            <summary>
+            卡号最小位数，默认为4
+            </summary>
+        </member>
+        <member name="P:ToolkitForms.SwipeForm.Value">
+            <summary>
+            用户刷出的卡号
+            </summary>
+        </member>
+        <member name="M:ToolkitForms.SwipeForm.#ctor">
+            <summary>
+            默认构造函数
+            </summary>
+        </member>
+        <member name="F:ToolkitForms.SwipeForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ToolkitForms.SwipeForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ToolkitForms.SwipeForm.InitializeComponent">
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
@@ -508,6 +554,11 @@
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
         </member>
+        <member name="P:ToolkitForms.Properties.Resources.Swipe">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
         <member name="T:MessageForm">
             <summary>
             解决MessageBox无法居中显示于父窗体的缺陷
@@ -633,21 +684,21 @@
             <param name="options">显示选项</param>
             <returns>用户选择结果</returns>
         </member>
-        <member name="M:MessageForm.None(System.String,System.String)">
+        <member name="M:MessageForm.Prompt(System.String,System.String)">
             <summary>
             提示框: 无图标
             </summary>
             <param name="text">消息文字</param>
-            <param name="caption">窗体标题，如果为null则使用ProductName</param>
+            <param name="caption">窗体标题</param>
             <returns>用户选择结果</returns>
         </member>
-        <member name="M:MessageForm.None(System.Windows.Forms.IWin32Window,System.String,System.String)">
+        <member name="M:MessageForm.Prompt(System.Windows.Forms.IWin32Window,System.String,System.String)">
             <summary>
             提示框: 无图标
             </summary>
             <param name="owner">要居中显示于的父窗体</param>
             <param name="text">消息文字</param>
-            <param name="caption">窗体标题，如果为null则使用ProductName</param>
+            <param name="caption">窗体标题，如果为null则使用"Prompt"</param>
             <returns>用户选择结果</returns>
         </member>
         <member name="M:MessageForm.Info(System.String,System.String)">
@@ -655,7 +706,7 @@
             提示框: 蓝色i图标
             </summary>
             <param name="text">消息文字</param>
-            <param name="caption">窗体标题，如果为null则使用ProductName</param>
+            <param name="caption">窗体标题</param>
             <returns>用户选择结果</returns>
         </member>
         <member name="M:MessageForm.Info(System.Windows.Forms.IWin32Window,System.String,System.String)">
@@ -664,7 +715,7 @@
             </summary>
             <param name="owner">要居中显示于的父窗体</param>
             <param name="text">消息文字</param>
-            <param name="caption">窗体标题，如果为null则使用ProductName</param>
+            <param name="caption">窗体标题</param>
             <returns>用户选择结果</returns>
         </member>
         <member name="M:MessageForm.Warning(System.String,System.String)">
@@ -672,7 +723,7 @@
             提示框: 黄色感叹号图标
             </summary>
             <param name="text">消息文字</param>
-            <param name="caption">窗体标题，如果为null则使用ProductName</param>
+            <param name="caption">窗体标题</param>
             <returns>用户选择结果</returns>
         </member>
         <member name="M:MessageForm.Warning(System.Windows.Forms.IWin32Window,System.String,System.String)">
@@ -681,7 +732,7 @@
             </summary>
             <param name="owner">要居中显示于的父窗体</param>
             <param name="text">消息文字</param>
-            <param name="caption">窗体标题，如果为null则使用ProductName</param>
+            <param name="caption">窗体标题</param>
             <returns>用户选择结果</returns>
         </member>
         <member name="M:MessageForm.Error(System.String,System.String)">
@@ -689,7 +740,7 @@
             提示框: 红底白叉图标
             </summary>
             <param name="text">消息文字</param>
-            <param name="caption">窗体标题，如果为null则使用ProductName</param>
+            <param name="caption">窗体标题</param>
             <returns>用户选择结果</returns>
         </member>
         <member name="M:MessageForm.Error(System.Windows.Forms.IWin32Window,System.String,System.String)">
@@ -698,7 +749,7 @@
             </summary>
             <param name="owner">要居中显示于的父窗体</param>
             <param name="text">消息文字</param>
-            <param name="caption">窗体标题，如果为null则使用ProductName</param>
+            <param name="caption">窗体标题</param>
             <returns>用户选择结果</returns>
         </member>
     </members>

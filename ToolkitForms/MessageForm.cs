@@ -195,9 +195,9 @@ public class MessageForm
 	/// 提示框: 无图标
 	/// </summary>
 	/// <param name="text">消息文字</param>
-	/// <param name="caption">窗体标题，如果为null则使用ProductName</param>
+	/// <param name="caption">窗体标题</param>
 	/// <returns>用户选择结果</returns>
-	public static DialogResult None(string text, string caption = null)
+	public static DialogResult Prompt(string text, string caption = "Prompt")
 	{
 		return ShowShortcut(null, text, caption, MessageBoxIcon.None);
 	}
@@ -206,9 +206,9 @@ public class MessageForm
 	/// </summary>
 	/// <param name="owner">要居中显示于的父窗体</param>
 	/// <param name="text">消息文字</param>
-	/// <param name="caption">窗体标题，如果为null则使用ProductName</param>
+	/// <param name="caption">窗体标题，如果为null则使用"Prompt"</param>
 	/// <returns>用户选择结果</returns>
-	public static DialogResult None(IWin32Window owner, string text, string caption = null)
+	public static DialogResult Prompt(IWin32Window owner, string text, string caption = "Prompt")
 	{
 		return ShowShortcut(owner, text, caption, MessageBoxIcon.None);
 	}
@@ -217,9 +217,9 @@ public class MessageForm
 	/// 提示框: 蓝色i图标
 	/// </summary>
 	/// <param name="text">消息文字</param>
-	/// <param name="caption">窗体标题，如果为null则使用ProductName</param>
+	/// <param name="caption">窗体标题</param>
 	/// <returns>用户选择结果</returns>
-	public static DialogResult Info(string text, string caption = null)
+	public static DialogResult Info(string text, string caption = "Information")
 	{
 		return ShowShortcut(null, text, caption, MessageBoxIcon.Information);
 	}
@@ -228,9 +228,9 @@ public class MessageForm
 	/// </summary>
 	/// <param name="owner">要居中显示于的父窗体</param>
 	/// <param name="text">消息文字</param>
-	/// <param name="caption">窗体标题，如果为null则使用ProductName</param>
+	/// <param name="caption">窗体标题</param>
 	/// <returns>用户选择结果</returns>
-	public static DialogResult Info(IWin32Window owner, string text, string caption = null)
+	public static DialogResult Info(IWin32Window owner, string text, string caption = "Information")
 	{
 		return ShowShortcut(owner, text, caption, MessageBoxIcon.Information);
 	}
@@ -239,9 +239,9 @@ public class MessageForm
 	/// 提示框: 黄色感叹号图标
 	/// </summary>
 	/// <param name="text">消息文字</param>
-	/// <param name="caption">窗体标题，如果为null则使用ProductName</param>
+	/// <param name="caption">窗体标题</param>
 	/// <returns>用户选择结果</returns>
-	public static DialogResult Warning(string text, string caption = null)
+	public static DialogResult Warning(string text, string caption = "Warning")
 	{
 		return ShowShortcut(null, text, caption, MessageBoxIcon.Exclamation);
 	}
@@ -251,9 +251,9 @@ public class MessageForm
 	/// </summary>
 	/// <param name="owner">要居中显示于的父窗体</param>
 	/// <param name="text">消息文字</param>
-	/// <param name="caption">窗体标题，如果为null则使用ProductName</param>
+	/// <param name="caption">窗体标题</param>
 	/// <returns>用户选择结果</returns>
-	public static DialogResult Warning(IWin32Window owner, string text, string caption = null)
+	public static DialogResult Warning(IWin32Window owner, string text, string caption = "Warning")
 	{
 		return ShowShortcut(owner, text, caption, MessageBoxIcon.Exclamation);
 	}
@@ -262,9 +262,9 @@ public class MessageForm
 	/// 提示框: 红底白叉图标
 	/// </summary>
 	/// <param name="text">消息文字</param>
-	/// <param name="caption">窗体标题，如果为null则使用ProductName</param>
+	/// <param name="caption">窗体标题</param>
 	/// <returns>用户选择结果</returns>
-	public static DialogResult Error(string text, string caption = null)
+	public static DialogResult Error(string text, string caption = "Error")
 	{
 		return ShowShortcut(null, text, caption, MessageBoxIcon.Error);
 	}
@@ -274,9 +274,9 @@ public class MessageForm
 	/// </summary>
 	/// <param name="owner">要居中显示于的父窗体</param>
 	/// <param name="text">消息文字</param>
-	/// <param name="caption">窗体标题，如果为null则使用ProductName</param>
+	/// <param name="caption">窗体标题</param>
 	/// <returns>用户选择结果</returns>
-	public static DialogResult Error(IWin32Window owner, string text, string caption = null)
+	public static DialogResult Error(IWin32Window owner, string text, string caption = "Error")
 	{
 		return ShowShortcut(owner, text, caption, MessageBoxIcon.Error);
 	}

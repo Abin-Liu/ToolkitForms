@@ -40,9 +40,9 @@
 			this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btnCancel.Image = global::ToolkitForms.Properties.Resources.Cancel;
-			this.btnCancel.Location = new System.Drawing.Point(166, 67);
+			this.btnCancel.Location = new System.Drawing.Point(166, 73);
 			this.btnCancel.Name = "btnCancel";
-			this.btnCancel.Size = new System.Drawing.Size(80, 26);
+			this.btnCancel.Size = new System.Drawing.Size(80, 28);
 			this.btnCancel.TabIndex = 3;
 			this.btnCancel.Text = "Cancel";
 			this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -53,9 +53,9 @@
 			// 
 			this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.btnOK.Image = global::ToolkitForms.Properties.Resources.OK;
-			this.btnOK.Location = new System.Drawing.Point(59, 67);
+			this.btnOK.Location = new System.Drawing.Point(59, 73);
 			this.btnOK.Name = "btnOK";
-			this.btnOK.Size = new System.Drawing.Size(80, 26);
+			this.btnOK.Size = new System.Drawing.Size(80, 28);
 			this.btnOK.TabIndex = 2;
 			this.btnOK.Text = "OK";
 			this.btnOK.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -64,9 +64,9 @@
 			// 
 			// lblPrompt
 			// 
-			this.lblPrompt.Location = new System.Drawing.Point(7, 10);
+			this.lblPrompt.Location = new System.Drawing.Point(7, 11);
 			this.lblPrompt.Name = "lblPrompt";
-			this.lblPrompt.Size = new System.Drawing.Size(285, 18);
+			this.lblPrompt.Size = new System.Drawing.Size(285, 20);
 			this.lblPrompt.TabIndex = 0;
 			this.lblPrompt.Text = "Message";
 			// 
@@ -76,18 +76,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Location = new System.Drawing.Point(12, 31);
+			this.comboBox1.Location = new System.Drawing.Point(12, 34);
 			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(280, 20);
+			this.comboBox1.Size = new System.Drawing.Size(280, 21);
 			this.comboBox1.TabIndex = 1;
 			// 
 			// SelectForm
 			// 
 			this.AcceptButton = this.btnOK;
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnCancel;
-			this.ClientSize = new System.Drawing.Size(304, 109);
+			this.ClientSize = new System.Drawing.Size(304, 118);
 			this.Controls.Add(this.comboBox1);
 			this.Controls.Add(this.btnCancel);
 			this.Controls.Add(this.btnOK);

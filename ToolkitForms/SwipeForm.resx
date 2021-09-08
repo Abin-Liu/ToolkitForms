@@ -117,14 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Cancel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Cancel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="OK" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\OK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Swipe" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Swipe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAwAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAA
+        ADIAAAAisbGv87Cwrv+urqz/rq6r/66uq/+urqv/rq6r/66uq/+urqv/rq6r/66uq/+urqv/rq6r/66u
+        rP+wsK7/pKSiwbCwrv//////////////////////////////////////////////////////////////
+        /////////////7Cwrv+urqz///////j5+P/4+Pj/+Pj4//j4+P/4+Pj/+Pj4//j4+P/4+Pj/+Pj4//j4
+        +P/4+Pj/+Pn4//////+urqz/r6+t//3+/v/z9fX/9Pb3//X3+P/1+Pj/9fj4//X4+P/1+Pj/9fj4//X4
+        +P/19/j/9Pb3//P19f/9/v7/r6+t/6+vrf/+////ybiq/7Sagv+1m4X/tpyF/7achf+2nIX/tpyF/7ac
+        hf+2nIX/tZuF/7Sagv/JuKr//v///6+vrf+vr67//////7GPdf+2l37/t5mB/7eZgv+3mYL/t5mC/7eZ
+        gv+3mYL/t5mC/7eZgf+2l37/sY91//////+vr67/r6+t///////AqJb/r4ds/7GKbv+xim//sIpv/7CK
+        b/+wim//sIpv/7CKb/+wiW//rods/8Colv//////r6+t/7Cwrv//////////////////////////////
+        /////////////////////////////////////////////7Cwrv+0s7GttbGr/72ypv9Ymdf/kqi8/1eT
+        1/++tab/tbKr/7Cwrf+vsK7/r7Cu/6+wrv+vr67/r6+t/7Cwrv+zs7GtAAAALgAAADIWlvPZCobqwQaF
+        //8AburBBGzz2QAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAALraxrO9ortr/TrDs/yes
+        //8ZmP//DIH//zaK7P9YlNn/trGq/6+vrP+vr6z/r6+s/6+vrP+vr63/sLCu/7CwrvG4sq3/2/P//y29
+        //84vv//Kqv//xeX//8Agv//zOL4///9+P/7+fn/+vn5//r5+f/6+fn/+/n6//////+wsK7/uLKt/5Xb
+        //9t0///R9L//zm///8lq///Ua///4HC////////////////////////////////////////sLCu/7e0
+        sMXAsqn/T7jv/1+/6v82wf//VLHq/z2j7v/AtKf/s7Cr/6+urP+urqz/rq6s/66urP+urqz/sLCu/7Oz
+        scUAAAAAAAAAAAAAAABIsfKxXq3jVkav8rEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAA//8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMH/AAAAAAAAAAAAAAAA
+        AAAAAAAA6/8AAA==
+</value>
   </data>
 </root>

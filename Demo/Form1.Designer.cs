@@ -35,13 +35,14 @@
 			this.btnMessageForm = new System.Windows.Forms.Button();
 			this.btnHotkeyForm = new System.Windows.Forms.Button();
 			this.btnTextAreaForm = new System.Windows.Forms.Button();
+			this.btnSwipeForm = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// btnSelectForm
 			// 
-			this.btnSelectForm.Location = new System.Drawing.Point(92, 63);
+			this.btnSelectForm.Location = new System.Drawing.Point(92, 68);
 			this.btnSelectForm.Name = "btnSelectForm";
-			this.btnSelectForm.Size = new System.Drawing.Size(90, 26);
+			this.btnSelectForm.Size = new System.Drawing.Size(90, 28);
 			this.btnSelectForm.TabIndex = 2;
 			this.btnSelectForm.Text = "Select";
 			this.btnSelectForm.UseVisualStyleBackColor = true;
@@ -49,9 +50,9 @@
 			// 
 			// btnInputForm
 			// 
-			this.btnInputForm.Location = new System.Drawing.Point(92, 31);
+			this.btnInputForm.Location = new System.Drawing.Point(92, 34);
 			this.btnInputForm.Name = "btnInputForm";
-			this.btnInputForm.Size = new System.Drawing.Size(90, 26);
+			this.btnInputForm.Size = new System.Drawing.Size(90, 28);
 			this.btnInputForm.TabIndex = 0;
 			this.btnInputForm.Text = "Input";
 			this.btnInputForm.UseVisualStyleBackColor = true;
@@ -59,9 +60,9 @@
 			// 
 			// btnTaskForm
 			// 
-			this.btnTaskForm.Location = new System.Drawing.Point(92, 95);
+			this.btnTaskForm.Location = new System.Drawing.Point(92, 103);
 			this.btnTaskForm.Name = "btnTaskForm";
-			this.btnTaskForm.Size = new System.Drawing.Size(90, 26);
+			this.btnTaskForm.Size = new System.Drawing.Size(90, 28);
 			this.btnTaskForm.TabIndex = 4;
 			this.btnTaskForm.Text = "Task";
 			this.btnTaskForm.UseVisualStyleBackColor = true;
@@ -69,9 +70,9 @@
 			// 
 			// btnLoginForm
 			// 
-			this.btnLoginForm.Location = new System.Drawing.Point(228, 63);
+			this.btnLoginForm.Location = new System.Drawing.Point(228, 68);
 			this.btnLoginForm.Name = "btnLoginForm";
-			this.btnLoginForm.Size = new System.Drawing.Size(90, 26);
+			this.btnLoginForm.Size = new System.Drawing.Size(90, 28);
 			this.btnLoginForm.TabIndex = 3;
 			this.btnLoginForm.Text = "Login";
 			this.btnLoginForm.UseVisualStyleBackColor = true;
@@ -79,9 +80,9 @@
 			// 
 			// btnMessageForm
 			// 
-			this.btnMessageForm.Location = new System.Drawing.Point(228, 95);
+			this.btnMessageForm.Location = new System.Drawing.Point(228, 103);
 			this.btnMessageForm.Name = "btnMessageForm";
-			this.btnMessageForm.Size = new System.Drawing.Size(90, 26);
+			this.btnMessageForm.Size = new System.Drawing.Size(90, 28);
 			this.btnMessageForm.TabIndex = 5;
 			this.btnMessageForm.Text = "Message";
 			this.btnMessageForm.UseVisualStyleBackColor = true;
@@ -89,9 +90,9 @@
 			// 
 			// btnHotkeyForm
 			// 
-			this.btnHotkeyForm.Location = new System.Drawing.Point(92, 127);
+			this.btnHotkeyForm.Location = new System.Drawing.Point(92, 138);
 			this.btnHotkeyForm.Name = "btnHotkeyForm";
-			this.btnHotkeyForm.Size = new System.Drawing.Size(90, 26);
+			this.btnHotkeyForm.Size = new System.Drawing.Size(90, 28);
 			this.btnHotkeyForm.TabIndex = 6;
 			this.btnHotkeyForm.Text = "Hotkey";
 			this.btnHotkeyForm.UseVisualStyleBackColor = true;
@@ -99,19 +100,30 @@
 			// 
 			// btnTextAreaForm
 			// 
-			this.btnTextAreaForm.Location = new System.Drawing.Point(228, 31);
+			this.btnTextAreaForm.Location = new System.Drawing.Point(228, 34);
 			this.btnTextAreaForm.Name = "btnTextAreaForm";
-			this.btnTextAreaForm.Size = new System.Drawing.Size(90, 26);
+			this.btnTextAreaForm.Size = new System.Drawing.Size(90, 28);
 			this.btnTextAreaForm.TabIndex = 1;
 			this.btnTextAreaForm.Text = "Text Area";
 			this.btnTextAreaForm.UseVisualStyleBackColor = true;
 			this.btnTextAreaForm.Click += new System.EventHandler(this.btnTextAreaForm_Click);
 			// 
+			// btnSwipeForm
+			// 
+			this.btnSwipeForm.Location = new System.Drawing.Point(228, 137);
+			this.btnSwipeForm.Name = "btnSwipeForm";
+			this.btnSwipeForm.Size = new System.Drawing.Size(90, 28);
+			this.btnSwipeForm.TabIndex = 6;
+			this.btnSwipeForm.Text = "Swipe";
+			this.btnSwipeForm.UseVisualStyleBackColor = true;
+			this.btnSwipeForm.Click += new System.EventHandler(this.btnSwipeForm_Click);
+			// 
 			// Form1
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(416, 178);
+			this.ClientSize = new System.Drawing.Size(416, 193);
+			this.Controls.Add(this.btnSwipeForm);
 			this.Controls.Add(this.btnHotkeyForm);
 			this.Controls.Add(this.btnMessageForm);
 			this.Controls.Add(this.btnLoginForm);
@@ -141,6 +153,7 @@
 		private System.Windows.Forms.Button btnMessageForm;
 		private System.Windows.Forms.Button btnHotkeyForm;
 		private System.Windows.Forms.Button btnTextAreaForm;
+		private System.Windows.Forms.Button btnSwipeForm;
 	}
 }
 

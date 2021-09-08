@@ -102,15 +102,12 @@ namespace Demo
 			}
 		}
 
-		bool LoginAuth(string userName, string password)
+		void LoginAuth(string userName, string password)
 		{
 			if (password != "123")
 			{
-				MessageForm.Show("Password must be 123", "Error");
-				return false;
+				throw new Exception("Password must be 123");
 			}
-
-			return true;
 		}
 
 		private void btnMessageForm_Click(object sender, EventArgs e)
@@ -135,7 +132,16 @@ namespace Demo
 			//string name = e.KeyCode.ToString();
 			//int value = (int)e.KeyCode;
 			//MessageForm.Show(this, name + ", " + value);
-		}		
+		}
+
+		private void btnSwipeForm_Click(object sender, EventArgs e)
+		{
+			SwipeForm form = new SwipeForm();
+			if (form.ShowDialog(this) == DialogResult.OK)
+			{
+				MessageForm.Show(this, form.Value, ProductName);
+			}
+		}
 	}
 
 	class TestObj

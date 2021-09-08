@@ -22,6 +22,7 @@ namespace ToolkitForms
 			{ "User Name", "用户名" },
 			{ "Password", "密码" },
 			{ "Login", "登录" },
+			{ "Login Failed", "登录失败" },
 
 			// SelectForm
 			{ "Select", "选择" },
@@ -40,6 +41,9 @@ namespace ToolkitForms
 			{ "Hotkey", "按键设置"},
 			{ "Modifiers:", "组合键："},
 			{ "Key:", "按键："},
+
+			// SwipeForm
+			{ "Swipe Your Card", "请刷卡"},
 		};
 	}
 }
