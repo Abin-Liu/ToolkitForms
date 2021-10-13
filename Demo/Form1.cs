@@ -113,19 +113,7 @@ namespace Demo
 		private void btnMessageForm_Click(object sender, EventArgs e)
 		{
 			MessageForm.Warning(this, "看哪，这个是会居中到父窗体的的MessageBox");
-		}
-
-		HotkeyData m_hotkey = new HotkeyData();
-		private void btnHotkeyForm_Click(object sender, EventArgs e)
-		{
-			HotkeyForm form = new HotkeyForm();
-			form.Hotkey = m_hotkey;
-
-			if (form.ShowDialog(this) == DialogResult.OK)
-			{
-				MessageForm.Show(this, m_hotkey.ToString(), ProductName);
-			}
-		}
+		}		
 
 		private void Form1_KeyDown(object sender, KeyEventArgs e)
 		{

@@ -35,12 +35,7 @@ namespace ToolkitForms
 			{ "Abort Task", "中止任務" },
 			{ "Process is not completed yet, abort anyway?", "任務尚未完成，確定要中止嗎？" },
 			{ "Task aborted by user.", "用戶中止了任務。" },
-			{ "Task timed out.", "任務已超時。" },
-
-			// HotkeyForm
-			{ "Hotkey", "按鍵設置"},
-			{ "Modifiers:", "組合鍵："},
-			{ "Key:", "按鍵："},
+			{ "Task timed out.", "任務已超時。" },			
 
 			// SwipeForm
 			{ "Swipe Your Card", "請刷卡"},

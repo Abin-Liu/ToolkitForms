@@ -33,7 +33,6 @@
 			this.btnTaskForm = new System.Windows.Forms.Button();
 			this.btnLoginForm = new System.Windows.Forms.Button();
 			this.btnMessageForm = new System.Windows.Forms.Button();
-			this.btnHotkeyForm = new System.Windows.Forms.Button();
 			this.btnTextAreaForm = new System.Windows.Forms.Button();
 			this.btnSwipeForm = new System.Windows.Forms.Button();
 			this.SuspendLayout();
@@ -88,16 +87,6 @@
 			this.btnMessageForm.UseVisualStyleBackColor = true;
 			this.btnMessageForm.Click += new System.EventHandler(this.btnMessageForm_Click);
 			// 
-			// btnHotkeyForm
-			// 
-			this.btnHotkeyForm.Location = new System.Drawing.Point(92, 138);
-			this.btnHotkeyForm.Name = "btnHotkeyForm";
-			this.btnHotkeyForm.Size = new System.Drawing.Size(90, 28);
-			this.btnHotkeyForm.TabIndex = 6;
-			this.btnHotkeyForm.Text = "Hotkey";
-			this.btnHotkeyForm.UseVisualStyleBackColor = true;
-			this.btnHotkeyForm.Click += new System.EventHandler(this.btnHotkeyForm_Click);
-			// 
 			// btnTextAreaForm
 			// 
 			this.btnTextAreaForm.Location = new System.Drawing.Point(228, 34);
@@ -110,7 +99,7 @@
 			// 
 			// btnSwipeForm
 			// 
-			this.btnSwipeForm.Location = new System.Drawing.Point(228, 137);
+			this.btnSwipeForm.Location = new System.Drawing.Point(92, 137);
 			this.btnSwipeForm.Name = "btnSwipeForm";
 			this.btnSwipeForm.Size = new System.Drawing.Size(90, 28);
 			this.btnSwipeForm.TabIndex = 6;
@@ -124,7 +113,6 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(416, 193);
 			this.Controls.Add(this.btnSwipeForm);
-			this.Controls.Add(this.btnHotkeyForm);
 			this.Controls.Add(this.btnMessageForm);
 			this.Controls.Add(this.btnLoginForm);
 			this.Controls.Add(this.btnTaskForm);
@@ -151,7 +139,6 @@
 		private System.Windows.Forms.Button btnTaskForm;
 		private System.Windows.Forms.Button btnLoginForm;
 		private System.Windows.Forms.Button btnMessageForm;
-		private System.Windows.Forms.Button btnHotkeyForm;
 		private System.Windows.Forms.Button btnTextAreaForm;
 		private System.Windows.Forms.Button btnSwipeForm;
 	}
