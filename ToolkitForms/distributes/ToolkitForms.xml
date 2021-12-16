@@ -236,6 +236,43 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:ToolkitForms.ShutdownForm">
+            <summary>
+            自动关机对话框
+            </summary>
+        </member>
+        <member name="P:ToolkitForms.ShutdownForm.CountDown">
+            <summary>
+            关机倒计时（秒），0代表立即关机，默认为180秒
+            </summary>
+        </member>
+        <member name="P:ToolkitForms.ShutdownForm.Message">
+            <summary>
+            提示信息，默认为本地化的"System will shutdown in:"
+            </summary>
+        </member>
+        <member name="M:ToolkitForms.ShutdownForm.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="F:ToolkitForms.ShutdownForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ToolkitForms.ShutdownForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ToolkitForms.ShutdownForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="T:ToolkitForms.SwipeForm">
             <summary>
             刷卡窗体

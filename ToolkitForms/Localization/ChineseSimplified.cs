@@ -39,6 +39,11 @@ namespace ToolkitForms
 
 			// SwipeForm
 			{ "Swipe Your Card", "请刷卡"},
+
+			// ShutdownFrom
+			{ "Auto Shutdown", "自动关机" },
+			{ "System will shutdown in:", "距离系统关机还剩：" },
+			{ "Shutdown", "立即关机" },
 		};
 	}
 }

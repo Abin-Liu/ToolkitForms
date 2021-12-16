@@ -130,6 +130,17 @@ namespace Demo
 				MessageForm.Show(this, form.Value, ProductName);
 			}
 		}
+
+		private void btnShutdown_Click(object sender, EventArgs e)
+		{
+			ShutdownForm form = new ShutdownForm();
+			form.CountDown = 3600;
+
+			if (form.ShowDialog(this) != DialogResult.OK)
+			{
+				MessageForm.Show(this, "User cancelled shutdown.", ProductName);
+			}
+		}
 	}
 
 	class TestObj

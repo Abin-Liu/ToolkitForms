@@ -35,6 +35,7 @@
 			this.btnMessageForm = new System.Windows.Forms.Button();
 			this.btnTextAreaForm = new System.Windows.Forms.Button();
 			this.btnSwipeForm = new System.Windows.Forms.Button();
+			this.btnShutdown = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// btnSelectForm
@@ -107,11 +108,22 @@
 			this.btnSwipeForm.UseVisualStyleBackColor = true;
 			this.btnSwipeForm.Click += new System.EventHandler(this.btnSwipeForm_Click);
 			// 
+			// btnShutdown
+			// 
+			this.btnShutdown.Location = new System.Drawing.Point(228, 137);
+			this.btnShutdown.Name = "btnShutdown";
+			this.btnShutdown.Size = new System.Drawing.Size(90, 28);
+			this.btnShutdown.TabIndex = 6;
+			this.btnShutdown.Text = "Shutdown";
+			this.btnShutdown.UseVisualStyleBackColor = true;
+			this.btnShutdown.Click += new System.EventHandler(this.btnShutdown_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(416, 193);
+			this.Controls.Add(this.btnShutdown);
 			this.Controls.Add(this.btnSwipeForm);
 			this.Controls.Add(this.btnMessageForm);
 			this.Controls.Add(this.btnLoginForm);
@@ -141,6 +153,7 @@
 		private System.Windows.Forms.Button btnMessageForm;
 		private System.Windows.Forms.Button btnTextAreaForm;
 		private System.Windows.Forms.Button btnSwipeForm;
+		private System.Windows.Forms.Button btnShutdown;
 	}
 }
 
