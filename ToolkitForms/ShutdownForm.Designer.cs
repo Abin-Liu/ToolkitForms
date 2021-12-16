@@ -50,7 +50,7 @@ namespace ToolkitForms
 			this.lblPrompt.Location = new System.Drawing.Point(12, 9);
 			this.lblPrompt.Name = "lblPrompt";
 			this.lblPrompt.Size = new System.Drawing.Size(338, 23);
-			this.lblPrompt.TabIndex = 0;
+			this.lblPrompt.TabIndex = 2;
 			this.lblPrompt.Text = "System will shutdown in:";
 			this.lblPrompt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
@@ -62,7 +62,7 @@ namespace ToolkitForms
 			this.lblTime.Location = new System.Drawing.Point(12, 38);
 			this.lblTime.Name = "lblTime";
 			this.lblTime.Size = new System.Drawing.Size(338, 42);
-			this.lblTime.TabIndex = 1;
+			this.lblTime.TabIndex = 3;
 			this.lblTime.Text = "0:00:00";
 			this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
@@ -73,7 +73,7 @@ namespace ToolkitForms
 			this.btnShutdown.Location = new System.Drawing.Point(71, 102);
 			this.btnShutdown.Name = "btnShutdown";
 			this.btnShutdown.Size = new System.Drawing.Size(92, 28);
-			this.btnShutdown.TabIndex = 2;
+			this.btnShutdown.TabIndex = 1;
 			this.btnShutdown.Text = "Shutdown";
 			this.btnShutdown.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnShutdown.UseVisualStyleBackColor = true;
@@ -86,7 +86,7 @@ namespace ToolkitForms
 			this.btnCancel.Location = new System.Drawing.Point(198, 102);
 			this.btnCancel.Name = "btnCancel";
 			this.btnCancel.Size = new System.Drawing.Size(92, 28);
-			this.btnCancel.TabIndex = 3;
+			this.btnCancel.TabIndex = 0;
 			this.btnCancel.Text = "Cancel";
 			this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
 			this.btnCancel.UseVisualStyleBackColor = true;
