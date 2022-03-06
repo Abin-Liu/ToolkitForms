@@ -99,7 +99,7 @@ namespace ToolkitForms
 				catch (Exception ex)
 				{
 					success = false;
-					MessageForm.Error(this, ex.Message ?? "Authentication failed.", FailCaption);
+					MessageBox.Show(this, ex.Message ?? "Authentication failed.", FailCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
 				}
 			}
 

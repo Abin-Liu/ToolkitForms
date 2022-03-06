@@ -244,7 +244,7 @@ namespace ToolkitForms
 			}
 
 			// 线程运行中，显示中止任务确认框
-			bool confirmed = MessageForm.Show(this, m_popupMessage, m_popupTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
+			bool confirmed = MessageBox.Show(this, m_popupMessage, m_popupTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
 
 			// 任务在确认期间自然结束了
 			if (!m_thread.IsAlive)
