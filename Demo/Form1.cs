@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using ToolkitForms;
-using UIToolkits;
 
 namespace Demo
 {
@@ -31,7 +30,7 @@ namespace Demo
 
 			if (form.ShowDialog(this) == DialogResult.OK)
 			{
-				MessageBoxPro.Prompt(this, form.Value, ProductName);
+				MessageBox.Show(this, form.Value, ProductName);
 			}
 		}
 
@@ -43,7 +42,7 @@ namespace Demo
 
 			if (form.ShowDialog(this) == DialogResult.OK)
 			{
-				MessageBoxPro.Prompt(this, form.Value, ProductName);
+				MessageBox.Show(this, form.Value, ProductName);
 			}
 		}
 
@@ -55,7 +54,7 @@ namespace Demo
 
 			if (form.ShowDialog(this) == DialogResult.OK)
 			{
-				MessageBoxPro.Prompt(this, string.Format("{0}", form.SelectedValue), ProductName);
+				MessageBox.Show(this, string.Format("{0}", form.SelectedValue), ProductName);
 			}
 		}
 
@@ -72,7 +71,7 @@ namespace Demo
 
 			if (form.ShowDialog(this) != DialogResult.OK)
 			{
-				MessageBoxPro.Error(this, form.Error, ProductName);
+				MessageBox.Show(this, form.Error, ProductName);
 			}
 		}
 
@@ -99,7 +98,7 @@ namespace Demo
 
 			if (form.ShowDialog(this) == DialogResult.OK)
 			{
-				MessageBoxPro.Info(this, "登陆成功", ProductName);
+				MessageBox.Show(this, "登陆成功", ProductName);
 			}
 		}
 
@@ -113,7 +112,6 @@ namespace Demo
 
 		private void btnMessageForm_Click(object sender, EventArgs e)
 		{
-			MessageBoxPro.Warning(this, "看哪，这个是会居中到父窗体的的MessageBox");
 		}		
 
 		private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -128,7 +126,7 @@ namespace Demo
 			SwipeForm form = new SwipeForm();
 			if (form.ShowDialog(this) == DialogResult.OK)
 			{
-				MessageBoxPro.Prompt(this, form.Value, ProductName);
+				MessageBox.Show(this, form.Value, ProductName);
 			}
 		}
 
@@ -139,7 +137,7 @@ namespace Demo
 
 			if (form.ShowDialog(this) != DialogResult.OK)
 			{
-				MessageBoxPro.Info(this, "User cancelled shutdown.", ProductName);
+				MessageBox.Show(this, "User cancelled shutdown.", ProductName);
 			}
 		}
 	}

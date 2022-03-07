@@ -80,6 +80,7 @@
 			// 
 			// btnMessageForm
 			// 
+			this.btnMessageForm.Enabled = false;
 			this.btnMessageForm.Location = new System.Drawing.Point(228, 103);
 			this.btnMessageForm.Name = "btnMessageForm";
 			this.btnMessageForm.Size = new System.Drawing.Size(90, 28);

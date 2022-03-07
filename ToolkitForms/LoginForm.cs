@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using UIToolkits;
 
 namespace ToolkitForms
 {
@@ -99,7 +100,7 @@ namespace ToolkitForms
 				catch (Exception ex)
 				{
 					success = false;
-					MessageBox.Show(this, ex.Message ?? "Authentication failed.", FailCaption, MessageBoxButtons.OK, MessageBoxIcon.Error);
+					Messagex.Error(this, ex.Message ?? "Authentication failed.", FailCaption);
 				}
 			}
 

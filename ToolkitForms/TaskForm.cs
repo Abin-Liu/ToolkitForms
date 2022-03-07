@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Threading;
+using UIToolkits;
 
 namespace ToolkitForms
 {
@@ -87,9 +88,9 @@ namespace ToolkitForms
 		public ProgressValueDelegate ProgressValue { get; set; }
 
 		/// <summary>
-		/// 是否允许用户中止任务，为true则显示Abort按钮，默认为true
+		/// 是否允许用户中止任务，为true则显示Abort按钮，默认为false
 		/// </summary>
-		public bool AllowAbort { get; set; } = true;
+		public bool AllowAbort { get; set; }
 
 		/// <summary>
 		/// 限制任务最大运行时间（毫秒），超过则强制中止，0表示无限制，默认为0
@@ -244,7 +245,7 @@ namespace ToolkitForms
 			}
 
 			// 线程运行中，显示中止任务确认框
-			bool confirmed = MessageBox.Show(this, m_popupMessage, m_popupTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
+			bool confirmed = Messagex.Confirm(this, m_popupMessage, m_popupTitle);
 
 			// 任务在确认期间自然结束了
 			if (!m_thread.IsAlive)

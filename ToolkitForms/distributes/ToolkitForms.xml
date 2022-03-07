@@ -398,7 +398,7 @@
         </member>
         <member name="P:ToolkitForms.TaskForm.AllowAbort">
             <summary>
-            是否允许用户中止任务，为true则显示Abort按钮，默认为true
+            是否允许用户中止任务，为true则显示Abort按钮，默认为false
             </summary>
         </member>
         <member name="P:ToolkitForms.TaskForm.TimeLimit">
@@ -468,6 +468,216 @@
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
             </summary>
+        </member>
+        <member name="T:UIToolkits.Messagex">
+            <summary>
+            解决MessageBox无法居中显示于父窗体的缺陷
+            </summary>
+        </member>
+        <member name="M:UIToolkits.Messagex.Show(System.String)">
+            <summary>
+            显示消息框
+            </summary>
+            <param name="text">消息文字</param>
+            <returns>用户选择结果</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Show(System.String,System.String)">
+            <summary>
+            显示消息框
+            </summary>
+            <param name="text">消息文字</param>
+            <param name="caption">窗体标题</param>
+            <returns>用户选择结果</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons)">
+            <summary>
+            显示消息框
+            </summary>
+            <param name="text">消息文字</param>
+            <param name="caption">窗体标题</param>
+            <param name="buttons">按钮组合</param>
+            <returns>用户选择结果</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon)">
+            <summary>
+            显示消息框
+            </summary>
+            <param name="text">消息文字</param>
+            <param name="caption">窗体标题</param>
+            <param name="buttons">按钮组合</param>
+            <param name="icon">主题图标</param>
+            <returns>用户选择结果</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton)">
+            <summary>
+            显示消息框
+            </summary>
+            <param name="text">消息文字</param>
+            <param name="caption">窗体标题</param>
+            <param name="buttons">按钮组合</param>
+            <param name="icon">主题图标</param>
+            <param name="defButton">默认按钮</param>
+            <returns>用户选择结果</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton,System.Windows.Forms.MessageBoxOptions)">
+            <summary>
+            显示消息框
+            </summary>
+            <param name="text">消息文字</param>
+            <param name="caption">窗体标题</param>
+            <param name="buttons">按钮组合</param>
+            <param name="icon">主题图标</param>
+            <param name="defButton">默认按钮</param>
+            <param name="options">显示选项</param>
+            <returns>用户选择结果</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Show(System.Windows.Forms.IWin32Window,System.String)">
+            <summary>
+            显示消息框
+            </summary>
+            <param name="owner">要居中显示于的父窗体</param>
+            <param name="text">消息文字</param>
+            <returns>用户选择结果</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Show(System.Windows.Forms.IWin32Window,System.String,System.String)">
+            <summary>
+            显示消息框
+            </summary>
+            <param name="owner">要居中显示于的父窗体</param>
+            <param name="text">消息文字</param>
+            <param name="caption">窗体标题</param>
+            <returns>用户选择结果</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Show(System.Windows.Forms.IWin32Window,System.String,System.String,System.Windows.Forms.MessageBoxButtons)">
+            <summary>
+            显示消息框
+            </summary>
+            <param name="owner">要居中显示于的父窗体</param>
+            <param name="text">消息文字</param>
+            <param name="caption">窗体标题</param>
+            <param name="buttons">按钮组合</param>
+            <returns>用户选择结果</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Show(System.Windows.Forms.IWin32Window,System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon)">
+            <summary>
+            显示消息框
+            </summary>
+            <param name="owner">要居中显示于的父窗体</param>
+            <param name="text">消息文字</param>
+            <param name="caption">窗体标题</param>
+            <param name="buttons">按钮组合</param>
+            <param name="icon">主题图标</param>
+            <returns>用户选择结果</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Show(System.Windows.Forms.IWin32Window,System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton)">
+            <summary>
+            显示消息框
+            </summary>
+            <param name="owner">要居中显示于的父窗体</param>
+            <param name="text">消息文字</param>
+            <param name="caption">窗体标题</param>
+            <param name="buttons">按钮组合</param>
+            <param name="icon">主题图标</param>
+            <param name="defButton">默认按钮</param>
+            <returns>用户选择结果</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Show(System.Windows.Forms.IWin32Window,System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon,System.Windows.Forms.MessageBoxDefaultButton,System.Windows.Forms.MessageBoxOptions)">
+            <summary>
+            显示消息框
+            </summary>
+            <param name="owner">要居中显示于的父窗体</param>
+            <param name="text">消息文字</param>
+            <param name="caption">窗体标题</param>
+            <param name="buttons">按钮组合</param>
+            <param name="icon">主题图标</param>
+            <param name="defButton">默认按钮</param>
+            <param name="options">显示选项</param>
+            <returns>用户选择结果</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Prompt(System.String,System.String)">
+            <summary>
+            提示框: 无图标
+            </summary>
+            <param name="text">消息文字</param>
+            <param name="caption">窗体标题</param>
+            <returns>用户选择结果</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Prompt(System.Windows.Forms.IWin32Window,System.String,System.String)">
+            <summary>
+            提示框: 无图标
+            </summary>
+            <param name="owner">要居中显示于的父窗体</param>
+            <param name="text">消息文字</param>
+            <param name="caption">窗体标题，如果为null则使用"Prompt"</param>
+            <returns>用户选择结果</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Info(System.String,System.String)">
+            <summary>
+            提示框: 蓝色i图标
+            </summary>
+            <param name="text">消息文字</param>
+            <param name="caption">窗体标题</param>
+            <returns>用户选择结果</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Info(System.Windows.Forms.IWin32Window,System.String,System.String)">
+            <summary>
+            提示框: 蓝色i图标
+            </summary>
+            <param name="owner">要居中显示于的父窗体</param>
+            <param name="text">消息文字</param>
+            <param name="caption">窗体标题</param>
+            <returns>用户选择结果</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Warning(System.String,System.String)">
+            <summary>
+            提示框: 黄色感叹号图标
+            </summary>
+            <param name="text">消息文字</param>
+            <param name="caption">窗体标题</param>
+            <returns>用户选择结果</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Warning(System.Windows.Forms.IWin32Window,System.String,System.String)">
+            <summary>
+            提示框: 黄色感叹号图标
+            </summary>
+            <param name="owner">要居中显示于的父窗体</param>
+            <param name="text">消息文字</param>
+            <param name="caption">窗体标题</param>
+            <returns>用户选择结果</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Error(System.String,System.String)">
+            <summary>
+            提示框: 红底白叉图标
+            </summary>
+            <param name="text">消息文字</param>
+            <param name="caption">窗体标题</param>
+            <returns>用户选择结果</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Error(System.Windows.Forms.IWin32Window,System.String,System.String)">
+            <summary>
+            提示框: 红底白叉图标
+            </summary>
+            <param name="owner">要居中显示于的父窗体</param>
+            <param name="text">消息文字</param>
+            <param name="caption">窗体标题</param>
+            <returns>用户选择结果</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Confirm(System.String,System.String)">
+            <summary>
+            OK/Cancel确认选择框：问号图标
+            </summary>
+            <param name="text">消息文字</param>
+            <param name="caption">窗体标题</param>
+            <returns>用户选择OK返回true，否则返回false</returns>
+        </member>
+        <member name="M:UIToolkits.Messagex.Confirm(System.Windows.Forms.IWin32Window,System.String,System.String)">
+            <summary>
+            OK/Cancel确认选择框：问号图标
+            </summary>
+            <param name="owner">要居中显示于的父窗体</param>
+            <param name="text">消息文字</param>
+            <param name="caption">窗体标题</param>
+            <returns>用户选择OK返回true，否则返回false</returns>
         </member>
     </members>
 </doc>
