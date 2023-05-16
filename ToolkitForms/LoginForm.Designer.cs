@@ -61,7 +61,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtUserName.Location = new System.Drawing.Point(80, 13);
 			this.txtUserName.Name = "txtUserName";
-			this.txtUserName.Size = new System.Drawing.Size(212, 20);
+			this.txtUserName.Size = new System.Drawing.Size(252, 20);
 			this.txtUserName.TabIndex = 1;
 			// 
 			// txtPassword
@@ -70,7 +70,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtPassword.Location = new System.Drawing.Point(80, 46);
 			this.txtPassword.Name = "txtPassword";
-			this.txtPassword.Size = new System.Drawing.Size(212, 20);
+			this.txtPassword.Size = new System.Drawing.Size(252, 20);
 			this.txtPassword.TabIndex = 3;
 			this.txtPassword.UseSystemPasswordChar = true;
 			// 
@@ -78,7 +78,7 @@
 			// 
 			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 			this.btnCancel.Image = global::ToolkitForms.Properties.Resources.Cancel;
-			this.btnCancel.Location = new System.Drawing.Point(181, 85);
+			this.btnCancel.Location = new System.Drawing.Point(190, 85);
 			this.btnCancel.Name = "btnCancel";
 			this.btnCancel.Size = new System.Drawing.Size(80, 28);
 			this.btnCancel.TabIndex = 5;
@@ -105,7 +105,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnCancel;
-			this.ClientSize = new System.Drawing.Size(304, 131);
+			this.ClientSize = new System.Drawing.Size(344, 131);
 			this.Controls.Add(this.btnCancel);
 			this.Controls.Add(this.btnOK);
 			this.Controls.Add(this.txtPassword);

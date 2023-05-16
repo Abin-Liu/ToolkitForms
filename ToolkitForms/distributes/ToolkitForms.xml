@@ -130,12 +130,52 @@
             <param name="key">字符串</param>
             <returns>获取成功返回本地化字符串，否则返回原字符串</returns>
         </member>
-        <member name="T:ToolkitForms.LoginFormAuthDelegate">
+        <member name="P:ToolkitForms.LoginAuthUI.Authenticator">
             <summary>
-            LoginForm登录验证委托，抛出异常表示登录失败
+            登录验证委托（参数1=用户名，参数2=登录密码）
             </summary>
-            <param name="userName">用户名</param>
-            <param name="password">密码</param>
+        </member>
+        <member name="P:ToolkitForms.LoginAuthUI.Message">
+            <summary>
+            窗体文字，默认为已本地化的"Authenticating user, please wait ..."
+            </summary>
+        </member>
+        <member name="P:ToolkitForms.LoginAuthUI.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:ToolkitForms.LoginAuthUI.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:ToolkitForms.LoginAuthUI.Success">
+            <summary>
+            登录是否成功
+            </summary>
+        </member>
+        <member name="P:ToolkitForms.LoginAuthUI.Error">
+            <summary>
+            错误信息
+            </summary>
+        </member>
+        <member name="F:ToolkitForms.LoginAuthUI.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:ToolkitForms.LoginAuthUI.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:ToolkitForms.LoginAuthUI.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
         </member>
         <member name="T:ToolkitForms.LoginForm">
             <summary>
@@ -154,17 +194,27 @@
         </member>
         <member name="P:ToolkitForms.LoginForm.Password">
             <summary>
-            密码
+            登录密码
             </summary>
         </member>
         <member name="P:ToolkitForms.LoginForm.Authenticator">
             <summary>
-            登录验证委托
+            登录验证委托（参数1=用户名，参数2=登录密码）
+            </summary>
+        </member>
+        <member name="P:ToolkitForms.LoginForm.AuthenticatintMessage">
+            <summary>
+            验证等待界面文字，默认为已本地化的"Authenticating user, please wait ..."
             </summary>
         </member>
         <member name="P:ToolkitForms.LoginForm.FailCaption">
             <summary>
             验证失败提示框标题文字，默认为已本地化的"Login Failed"
+            </summary>
+        </member>
+        <member name="P:ToolkitForms.LoginForm.Success">
+            <summary>
+            登录是否成功
             </summary>
         </member>
         <member name="M:ToolkitForms.LoginForm.#ctor">

@@ -23,6 +23,7 @@ namespace ToolkitForms
 			{ "Password", "密码" },
 			{ "Login", "登录" },
 			{ "Login Failed", "登录失败" },
+			{ "Authenticating user, please wait ...", "正在验证用户，请稍候..." },
 
 			// SelectForm
 			{ "Select", "选择" },

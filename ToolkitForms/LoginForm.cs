@@ -5,13 +5,6 @@ using UIToolkits;
 namespace ToolkitForms
 {
 	/// <summary>
-	/// LoginForm登录验证委托，抛出异常表示登录失败
-	/// </summary>
-	/// <param name="userName">用户名</param>
-	/// <param name="password">密码</param>
-	public delegate void LoginFormAuthDelegate(string userName, string password);
-
-	/// <summary>
 	/// 登录框体
 	/// </summary>
 	public partial class LoginForm : Form
@@ -27,14 +20,19 @@ namespace ToolkitForms
 		public string UserName { get; set; }
 
 		/// <summary>
-		/// 密码
+		/// 登录密码
 		/// </summary>
 		public string Password { get; set; }
 
 		/// <summary>
-		/// 登录验证委托
+		/// 登录验证委托（参数1=用户名，参数2=登录密码）
 		/// </summary>
-		public LoginFormAuthDelegate Authenticator { get; set; }
+		public Action<string, string> Authenticator { get; set; }
+
+		/// <summary>
+		/// 验证等待界面文字，默认为已本地化的"Authenticating user, please wait ..."
+		/// </summary>
+		public string AuthenticatintMessage { get; set; }
 
 		/// <summary>
 		/// 验证失败提示框标题文字，默认为已本地化的"Login Failed"
@@ -42,16 +40,21 @@ namespace ToolkitForms
 		public string FailCaption { get; set; }
 
 		/// <summary>
+		/// 登录是否成功
+		/// </summary>
+		public bool Success { get; private set; }		
+
+		/// <summary>
 		/// 默认构造函数
 		/// </summary>
 		public LoginForm()
 		{
 			InitializeComponent();
-			Text = Localization.Get("User Login");
+			Text = Localization.Get("User Login");			
 		}
 
 		private void LoginForm_Load(object sender, EventArgs e)
-		{
+		{			
 			FailCaption = FailCaption ?? Localization.Get("Login Failed");
 			lblUserName.Text = UserNameLabel ?? Localization.Get("User Name");
 			lblPassword.Text = Localization.Get("Password");
@@ -89,29 +92,31 @@ namespace ToolkitForms
 				txtPassword.Focus();
 				return;
 			}
-
-			bool success = true;
-			if (Authenticator != null)
+			
+			if (Authenticator == null)
 			{
-				try
-				{
-					Authenticator(userName, password);
-				}
-				catch (Exception ex)
-				{
-					success = false;
-					Messagex.Error(this, ex.Message ?? "Authentication failed.", FailCaption);
-				}
-			}
-
-			if (success)
-			{
+				// 开发者自行处理用户名和密码
 				UserName = userName;
 				Password = password;
+				Success = true;
+				DialogResult = DialogResult.OK;
+				return;
+			}
+
+			LoginAuthUI authUI = new LoginAuthUI();
+			authUI.UserName = userName;
+			authUI.Password = password;
+			authUI.Authenticator = Authenticator;
+			authUI.Message = AuthenticatintMessage;
+			Success = authUI.ShowDialog(this) == DialogResult.OK;			
+			if (Success)
+			{
+				UserName = userName;
 				DialogResult = DialogResult.OK;
 			}
 			else
-			{
+			{				
+				Messagex.Error(this, authUI.Error ?? "Authentication failed.", FailCaption);
 				txtPassword.Focus();
 				txtPassword.SelectAll();
 			}			

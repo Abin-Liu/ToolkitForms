@@ -59,6 +59,12 @@
     <Compile Include="Localization\ChineseSimplified.cs" />
     <Compile Include="Localization\ChineseTraditional.cs" />
     <Compile Include="Localization\Localization.cs" />
+    <Compile Include="LoginAuthUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginAuthUI.Designer.cs">
+      <DependentUpon>LoginAuthUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +98,9 @@
     </Compile>
     <EmbeddedResource Include="InputForm.resx">
       <DependentUpon>InputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginAuthUI.resx">
+      <DependentUpon>LoginAuthUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

@@ -104,6 +104,7 @@ namespace Demo
 
 		void LoginAuth(string userName, string password)
 		{
+			Thread.Sleep(2000);
 			if (password != "123")
 			{
 				throw new Exception("Password must be 123");
