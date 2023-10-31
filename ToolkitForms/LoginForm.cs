@@ -104,6 +104,7 @@ namespace ToolkitForms
 			}
 
 			LoginAuthUI authUI = new LoginAuthUI();
+			authUI.Font = Font;
 			authUI.UserName = userName;
 			authUI.Password = password;
 			authUI.Authenticator = Authenticator;

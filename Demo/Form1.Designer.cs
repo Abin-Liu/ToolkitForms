@@ -40,9 +40,10 @@
 			// 
 			// btnSelectForm
 			// 
-			this.btnSelectForm.Location = new System.Drawing.Point(92, 68);
+			this.btnSelectForm.Location = new System.Drawing.Point(153, 110);
+			this.btnSelectForm.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
 			this.btnSelectForm.Name = "btnSelectForm";
-			this.btnSelectForm.Size = new System.Drawing.Size(90, 28);
+			this.btnSelectForm.Size = new System.Drawing.Size(150, 45);
 			this.btnSelectForm.TabIndex = 2;
 			this.btnSelectForm.Text = "Select";
 			this.btnSelectForm.UseVisualStyleBackColor = true;
@@ -50,9 +51,10 @@
 			// 
 			// btnInputForm
 			// 
-			this.btnInputForm.Location = new System.Drawing.Point(92, 34);
+			this.btnInputForm.Location = new System.Drawing.Point(153, 55);
+			this.btnInputForm.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
 			this.btnInputForm.Name = "btnInputForm";
-			this.btnInputForm.Size = new System.Drawing.Size(90, 28);
+			this.btnInputForm.Size = new System.Drawing.Size(150, 45);
 			this.btnInputForm.TabIndex = 0;
 			this.btnInputForm.Text = "Input";
 			this.btnInputForm.UseVisualStyleBackColor = true;
@@ -60,9 +62,10 @@
 			// 
 			// btnTaskForm
 			// 
-			this.btnTaskForm.Location = new System.Drawing.Point(92, 103);
+			this.btnTaskForm.Location = new System.Drawing.Point(153, 166);
+			this.btnTaskForm.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
 			this.btnTaskForm.Name = "btnTaskForm";
-			this.btnTaskForm.Size = new System.Drawing.Size(90, 28);
+			this.btnTaskForm.Size = new System.Drawing.Size(150, 45);
 			this.btnTaskForm.TabIndex = 4;
 			this.btnTaskForm.Text = "Task";
 			this.btnTaskForm.UseVisualStyleBackColor = true;
@@ -70,9 +73,10 @@
 			// 
 			// btnLoginForm
 			// 
-			this.btnLoginForm.Location = new System.Drawing.Point(228, 68);
+			this.btnLoginForm.Location = new System.Drawing.Point(380, 110);
+			this.btnLoginForm.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
 			this.btnLoginForm.Name = "btnLoginForm";
-			this.btnLoginForm.Size = new System.Drawing.Size(90, 28);
+			this.btnLoginForm.Size = new System.Drawing.Size(150, 45);
 			this.btnLoginForm.TabIndex = 3;
 			this.btnLoginForm.Text = "Login";
 			this.btnLoginForm.UseVisualStyleBackColor = true;
@@ -81,9 +85,10 @@
 			// btnMessageForm
 			// 
 			this.btnMessageForm.Enabled = false;
-			this.btnMessageForm.Location = new System.Drawing.Point(228, 103);
+			this.btnMessageForm.Location = new System.Drawing.Point(380, 166);
+			this.btnMessageForm.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
 			this.btnMessageForm.Name = "btnMessageForm";
-			this.btnMessageForm.Size = new System.Drawing.Size(90, 28);
+			this.btnMessageForm.Size = new System.Drawing.Size(150, 45);
 			this.btnMessageForm.TabIndex = 5;
 			this.btnMessageForm.Text = "Message";
 			this.btnMessageForm.UseVisualStyleBackColor = true;
@@ -91,9 +96,10 @@
 			// 
 			// btnTextAreaForm
 			// 
-			this.btnTextAreaForm.Location = new System.Drawing.Point(228, 34);
+			this.btnTextAreaForm.Location = new System.Drawing.Point(380, 55);
+			this.btnTextAreaForm.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
 			this.btnTextAreaForm.Name = "btnTextAreaForm";
-			this.btnTextAreaForm.Size = new System.Drawing.Size(90, 28);
+			this.btnTextAreaForm.Size = new System.Drawing.Size(150, 45);
 			this.btnTextAreaForm.TabIndex = 1;
 			this.btnTextAreaForm.Text = "Text Area";
 			this.btnTextAreaForm.UseVisualStyleBackColor = true;
@@ -101,9 +107,10 @@
 			// 
 			// btnSwipeForm
 			// 
-			this.btnSwipeForm.Location = new System.Drawing.Point(92, 137);
+			this.btnSwipeForm.Location = new System.Drawing.Point(153, 221);
+			this.btnSwipeForm.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
 			this.btnSwipeForm.Name = "btnSwipeForm";
-			this.btnSwipeForm.Size = new System.Drawing.Size(90, 28);
+			this.btnSwipeForm.Size = new System.Drawing.Size(150, 45);
 			this.btnSwipeForm.TabIndex = 6;
 			this.btnSwipeForm.Text = "Swipe";
 			this.btnSwipeForm.UseVisualStyleBackColor = true;
@@ -111,9 +118,10 @@
 			// 
 			// btnShutdown
 			// 
-			this.btnShutdown.Location = new System.Drawing.Point(228, 137);
+			this.btnShutdown.Location = new System.Drawing.Point(380, 221);
+			this.btnShutdown.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
 			this.btnShutdown.Name = "btnShutdown";
-			this.btnShutdown.Size = new System.Drawing.Size(90, 28);
+			this.btnShutdown.Size = new System.Drawing.Size(150, 45);
 			this.btnShutdown.TabIndex = 6;
 			this.btnShutdown.Text = "Shutdown";
 			this.btnShutdown.UseVisualStyleBackColor = true;
@@ -121,9 +129,9 @@
 			// 
 			// Form1
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(416, 193);
+			this.ClientSize = new System.Drawing.Size(693, 312);
 			this.Controls.Add(this.btnShutdown);
 			this.Controls.Add(this.btnSwipeForm);
 			this.Controls.Add(this.btnMessageForm);
@@ -132,8 +140,10 @@
 			this.Controls.Add(this.btnSelectForm);
 			this.Controls.Add(this.btnTextAreaForm);
 			this.Controls.Add(this.btnInputForm);
+			this.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.KeyPreview = true;
+			this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "Form1";

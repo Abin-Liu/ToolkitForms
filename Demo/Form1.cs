@@ -25,6 +25,7 @@ namespace Demo
 		private void btnInputForm_Click(object sender, EventArgs e)
 		{
 			InputForm form = new InputForm();
+			form.Font = Font;
 			form.Message = "请输入字母或数字：";
 			form.Regex = InputFormCommonRules.AlphabetDigits;
 
@@ -93,6 +94,7 @@ namespace Demo
 		private void btnLoginForm_Click(object sender, EventArgs e)
 		{
 			LoginForm form = new LoginForm();
+			form.Font = Font;
 			form.Authenticator = LoginAuth;
 			form.UserName = "Abin";
 
