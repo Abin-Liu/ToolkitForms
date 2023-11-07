@@ -26,6 +26,7 @@ namespace Demo
 		{
 			InputForm form = new InputForm();
 			form.Font = Font;
+			//form.IsPassword = true;
 			form.Message = "请输入字母或数字：";
 			form.Regex = InputFormCommonRules.AlphabetDigits;
 

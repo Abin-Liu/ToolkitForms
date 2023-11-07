@@ -21,6 +21,11 @@
             初始值/用户输入值
             </summary>
         </member>
+        <member name="P:ToolkitForms.InputForm.IsPassword">
+            <summary>
+            是否用来输入密码
+            </summary>
+        </member>
         <member name="P:ToolkitForms.InputForm.AutoTrim">
             <summary>
             是否自动去除两端空格，默认为true

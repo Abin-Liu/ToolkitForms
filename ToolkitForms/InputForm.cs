@@ -22,6 +22,11 @@ namespace ToolkitForms
 		public string Value { get; set; }
 
 		/// <summary>
+		/// 是否用来输入密码
+		/// </summary>
+		public bool IsPassword { get; set; }
+
+		/// <summary>
 		/// 是否自动去除两端空格，默认为true
 		/// </summary>
 		public bool AutoTrim { get; set; } = true;
@@ -58,6 +63,7 @@ namespace ToolkitForms
 		private void InputForm_Load(object sender, EventArgs e)
 		{
 			lblPrompt.Text = Message ?? Localization.Get("Please type a value");
+			txtValue.UseSystemPasswordChar = IsPassword;
 			btnOK.Text = " " + Localization.Get("OK");
 			btnCancel.Text = " " + Localization.Get("Cancel");
 
@@ -88,9 +94,9 @@ namespace ToolkitForms
 		private void btnOK_Click(object sender, EventArgs e)
 		{
 			string text = txtValue.Text;
-			if (AutoTrim)
+			if (AutoTrim && !IsPassword)
 			{
-				text = text.Trim(); // 去除两端空格
+				text = text.Trim(); // 去除两端空格（密码除外）
 			}
 
 			if (text == "")

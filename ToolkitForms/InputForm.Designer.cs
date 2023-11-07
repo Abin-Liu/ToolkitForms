@@ -51,7 +51,7 @@
 			this.txtValue.Location = new System.Drawing.Point(12, 33);
 			this.txtValue.Name = "txtValue";
 			this.txtValue.Size = new System.Drawing.Size(280, 20);
-			this.txtValue.TabIndex = 1;
+			this.txtValue.TabIndex = 1;			
 			// 
 			// btnOK
 			// 
