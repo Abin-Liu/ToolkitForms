@@ -68,9 +68,26 @@ namespace ToolkitForms
 		public object Parameter { get; set; }		
 
 		/// <summary>
-		/// 窗体文字，默认为已本地化的"Processing data..."
+		/// 提示文字，默认为已本地化的"Processing data..."
 		/// </summary>
-		public string Message { get; set; }		
+		public string Message
+		{
+			get
+			{
+				return m_messageText;
+			}
+
+			set
+			{
+				if (m_messageText != value)
+				{
+					m_messageText = value;
+					BeginInvoke(new Action(() => { 
+						lblPrompt.Text = m_messageText;
+					}));
+				}
+			}
+		}
 
 		/// <summary>
 		/// 进度条文字，默认为"{Value}/{Max} ({Percent})" => 32/100 (32%)
@@ -111,6 +128,7 @@ namespace ToolkitForms
 		private DateTime m_startTime;
 		private bool m_timedout = false;
 		private bool m_hasProgress = false;
+		private string m_messageText = Localization.Get("Processing data...");
 
 		/// <summary>
 		///默认 构造函数
@@ -123,7 +141,7 @@ namespace ToolkitForms
 
 		private void TaskForm_Load(object sender, EventArgs e)
 		{			
-			lblPrompt.Text = Message ?? Localization.Get("Processing data...");
+			lblPrompt.Text = m_messageText;
 			btnAbort.Text = " " + Localization.Get("Abort");
 
 			ControlBox = AllowAbort;

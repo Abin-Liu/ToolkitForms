@@ -433,7 +433,7 @@
         </member>
         <member name="P:ToolkitForms.TaskForm.Message">
             <summary>
-            窗体文字，默认为已本地化的"Processing data..."
+            提示文字，默认为已本地化的"Processing data..."
             </summary>
         </member>
         <member name="P:ToolkitForms.TaskForm.ProgressFormat">
