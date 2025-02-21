@@ -47,20 +47,14 @@ namespace ToolkitForms
 		}
 
 		/// <summary>
-		/// 获取当前进度值的回调
-		/// </summary>
-		/// <returns>当前进度值</returns>
-		public delegate int ProgressValueDelegate();
-
-		/// <summary>
 		/// 线程工作函数（无参），如果非null则优先运行
 		/// </summary>
-		public ThreadStart TaskProc { get; set; }
+		public Action TaskProc { get; set; }
 
 		/// <summary>
 		/// 线程工作函数（带参），只有当TaskProc为null时才会运行
 		/// </summary>
-		public ParameterizedThreadStart ParameterTaskProc { get; set; }
+		public Action<object> ParameterTaskProc { get; set; }
 
 		/// <summary>
 		/// ParameterThreadProc的参数
@@ -70,25 +64,8 @@ namespace ToolkitForms
 		/// <summary>
 		/// 提示文字，默认为已本地化的"Processing data..."
 		/// </summary>
-		public string Message
-		{
-			get
-			{
-				return m_messageText;
-			}
-
-			set
-			{
-				if (m_messageText != value)
-				{
-					m_messageText = value;
-					BeginInvoke(new Action(() => { 
-						lblPrompt.Text = m_messageText;
-					}));
-				}
-			}
-		}
-
+		public string Message { get => GetMessageText(); set => SetMessageText(value); }
+		
 		/// <summary>
 		/// 进度条文字，默认为"{Value}/{Max} ({Percent})" => 32/100 (32%)
 		/// </summary>
@@ -102,7 +79,7 @@ namespace ToolkitForms
 		/// <summary>
 		/// 获取当前进度值的委托，如果为null则不显示进度条
 		/// </summary>
-		public ProgressValueDelegate ProgressValue { get; set; }
+		public Func<int> ProgressValue { get; set; }
 
 		/// <summary>
 		/// 是否允许用户中止任务，为true则显示Abort按钮，默认为false
@@ -117,7 +94,7 @@ namespace ToolkitForms
 		/// <summary>
 		/// 任务运行结果
 		/// </summary>
-		public TaskResults TaskResult { get; private set; } = TaskResults.None;		
+		public TaskResults TaskResult { get; private set; } = TaskResults.None;
 
 		/// <summary>
 		/// 线程运行中发生的错误信息
@@ -128,7 +105,8 @@ namespace ToolkitForms
 		private DateTime m_startTime;
 		private bool m_timedout = false;
 		private bool m_hasProgress = false;
-		private string m_messageText = Localization.Get("Processing data...");
+		private object m_lock = new object();
+		private string m_messageText = Localization.Get("Processing data...");		
 
 		/// <summary>
 		///默认 构造函数
@@ -139,9 +117,33 @@ namespace ToolkitForms
 			Text = Localization.Get("Please Wait");
 		}
 
+		/// <summary>
+		/// 获取消息提示文字
+		/// </summary>
+		/// <returns>消息提示文字</returns>
+		public string GetMessageText()
+		{
+			lock (m_lock)
+			{
+				return m_messageText;
+			}
+		}
+
+		/// <summary>
+		/// 设置消息提示文字
+		/// </summary>
+		/// <param name="messageText">消息提示文字</param>
+		public void SetMessageText(string messageText)
+		{
+			lock (m_lock)
+			{
+				m_messageText = messageText;
+			}
+		}
+
 		private void TaskForm_Load(object sender, EventArgs e)
 		{			
-			lblPrompt.Text = m_messageText;
+			lblPrompt.Text = Message;
 			btnAbort.Text = " " + Localization.Get("Abort");
 
 			ControlBox = AllowAbort;
@@ -230,6 +232,7 @@ namespace ToolkitForms
 		{
 			if (m_thread.IsAlive)
 			{
+				UpdateMessageText();
 				UpdateProgressBar();
 
 				if (!m_timedout && TimeLimit > 0 && (DateTime.Now - m_startTime).TotalMilliseconds > TimeLimit)
@@ -286,6 +289,11 @@ namespace ToolkitForms
 		private void btnAbort_Click(object sender, EventArgs e)
 		{
 			Close();
+		}
+
+		private void UpdateMessageText()
+		{			
+			lblPrompt.Text = Message;
 		}
 		
 		private void UpdateProgressBar()

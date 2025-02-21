@@ -410,12 +410,6 @@
             任务因出现异常而终止
             </summary>
         </member>
-        <member name="T:ToolkitForms.TaskForm.ProgressValueDelegate">
-            <summary>
-            获取当前进度值的回调
-            </summary>
-            <returns>当前进度值</returns>
-        </member>
         <member name="P:ToolkitForms.TaskForm.TaskProc">
             <summary>
             线程工作函数（无参），如果非null则优先运行
@@ -475,6 +469,18 @@
              <summary>
             默认 构造函数
              </summary>
+        </member>
+        <member name="M:ToolkitForms.TaskForm.GetMessageText">
+            <summary>
+            获取消息提示文字
+            </summary>
+            <returns>消息提示文字</returns>
+        </member>
+        <member name="M:ToolkitForms.TaskForm.SetMessageText(System.String)">
+            <summary>
+            设置消息提示文字
+            </summary>
+            <param name="messageText">消息提示文字</param>
         </member>
         <member name="F:ToolkitForms.TaskForm.components">
             <summary>
